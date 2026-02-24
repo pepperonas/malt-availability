@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install macOS LaunchAgent for malt-availability
-# Runs daily at 10:00 AM (more frequent than 7 days to reliably catch the window)
+# Starts at login/boot, runs daily at 10:00 AM, auto-restarts on failure.
 
 set -e
 
@@ -27,6 +27,8 @@ cat > "$PLIST_PATH" << EOF
     </array>
     <key>WorkingDirectory</key>
     <string>${SCRIPT_DIR}</string>
+    <key>RunAtLoad</key>
+    <true/>
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
@@ -45,8 +47,6 @@ cat > "$PLIST_PATH" << EOF
         <key>HOME</key>
         <string>${HOME}</string>
     </dict>
-    <key>RunAtLoad</key>
-    <false/>
     <key>ProcessType</key>
     <string>Background</string>
 </dict>
@@ -61,7 +61,7 @@ launchctl bootstrap "gui/$(id -u)" "$PLIST_PATH"
 
 echo "LaunchAgent installed and loaded."
 echo "  Plist: $PLIST_PATH"
-echo "  Schedule: Daily at 10:00 AM"
+echo "  Starts: Automatically at login + daily at 10:00 AM"
 echo "  Logs: $LOG_DIR/"
 echo ""
 echo "To run immediately: npm run confirm"
