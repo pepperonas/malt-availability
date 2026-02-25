@@ -3,3 +3,7 @@ logs/*.log
 browser-data/
 .DS_Store
 *.log
+.env
+license.json
+server/licenses.json
+server/node_modules/

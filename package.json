@@ -10,10 +10,11 @@
     "status": "node src/status.js",
     "install-schedule": "node scripts/install-schedule.js",
     "uninstall-schedule": "node scripts/uninstall-schedule.js",
+    "activate": "node src/license.js",
     "test": "node --test test/*.test.js"
   },
   "author": "Martin Pfeffer <celox.io>",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "playwright": "^1.50.0"
   }

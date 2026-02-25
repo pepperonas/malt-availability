@@ -1,0 +1,13 @@
+{
+  "name": "malt-availability-license-server",
+  "version": "1.0.0",
+  "description": "License server for malt-availability",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "stripe": "^17.0.0"
+  }
+}

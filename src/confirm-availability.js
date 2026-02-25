@@ -12,6 +12,7 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 const config = require('./config');
 const log = require('./logger');
+const { checkLicense } = require('./license');
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -206,6 +207,18 @@ async function confirmInDialog(page) {
 
 async function run() {
   log.info('=== Malt availability confirmation started ===');
+
+  // License check
+  log.info('Checking license...');
+  const licenseStatus = await checkLicense();
+  if (!licenseStatus.valid) {
+    log.error(`License check failed: ${licenseStatus.error}`);
+    log.error('Purchase a license at: ' + config.LICENSE_SERVER_URL);
+    log.error('Then run: npm run activate');
+    notify('Malt Availability', 'No valid license. Run: npm run activate');
+    process.exit(1);
+  }
+  log.info(`License valid (${licenseStatus.type})`);
 
   ensureDir(config.BROWSER_DATA_DIR);
 

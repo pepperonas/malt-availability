@@ -1,6 +1,6 @@
 # malt-availability
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](#lizenz--license)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.50+-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![macOS](https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white)](https://www.apple.com/macos/)
@@ -8,7 +8,7 @@
 [![Windows](https://img.shields.io/badge/Windows-supported-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![Malt](https://img.shields.io/badge/Malt.de-Freelancer-FC5757)](https://www.malt.de/)
 [![Tests](https://img.shields.io/badge/Tests-29%20passed-brightgreen)](test/)
-[![Automation](https://img.shields.io/badge/Automation-Daily-blue)](scripts/)
+[![Stripe](https://img.shields.io/badge/Payments-Stripe-635BFF?logo=stripe&logoColor=white)](https://stripe.com/)
 
 > **[Deutsch](#deutsch)** | **[English](#english)**
 
@@ -21,6 +21,15 @@
 Automatische Verfügbarkeitsbestätigung für [malt.de](https://www.malt.de) Freelancer-Profile.
 
 Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, um das Badge "Verfügbarkeit bestätigt" auf dem Profil zu behalten. Ohne Bestätigung sinkt die Sichtbarkeit in den Suchergebnissen. Dieses Tool automatisiert den gesamten Vorgang auf **macOS, Linux und Windows**.
+
+### Preise
+
+| Plan | Preis | Details |
+|------|-------|---------|
+| **Monats-Abo** | 5 EUR/Monat | Jederzeit kündbar |
+| **Lifetime** | 49 EUR einmalig | Einmal zahlen, für immer nutzen |
+
+Lizenz kaufen und Schlüssel erhalten: **[malt-license.example.com](https://malt-license.example.com)**
 
 ### So funktioniert's
 
@@ -39,6 +48,16 @@ npm install
 # Playwright-Browser installieren (nur Chromium)
 npx playwright install chromium
 ```
+
+### Lizenz aktivieren
+
+Nach dem Kauf einer Lizenz erhältst du einen Schlüssel im Format `MALT-XXXX-XXXX-XXXX-XXXX`.
+
+```bash
+npm run activate
+```
+
+Gibt den Lizenzschlüssel ein, wenn du dazu aufgefordert wirst. Der Schlüssel wird lokal in `license.json` gespeichert (gitignored).
 
 ### Anmeldung
 
@@ -74,9 +93,10 @@ npm run install-schedule
 
 | Befehl | Beschreibung |
 |--------|-------------|
+| `npm run activate` | Lizenzschlüssel eingeben und aktivieren |
 | `npm run setup` | Google SSO Login (öffnet Browser-Fenster) |
 | `npm run setup:login` | E-Mail/Passwort Login (interaktiv im Terminal) |
-| `npm run confirm` | Verfügbarkeit einmalig bestätigen |
+| `npm run confirm` | Verfügbarkeit einmalig bestätigen (erfordert Lizenz) |
 | `npm run status` | Aktuellen Status anzeigen (Session, Scheduler, letzter Lauf) |
 | `npm run install-schedule` | Scheduler installieren (erkennt OS automatisch) |
 | `npm run uninstall-schedule` | Scheduler entfernen |
@@ -112,6 +132,7 @@ Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `
 - **macOS**, **Linux** oder **Windows**
 - Node.js >= 18
 - Ein Malt.de Freelancer-Konto
+- Eine gültige Lizenz (monatlich oder Lifetime)
 - Linux: `notify-send` (optional, für Desktop-Benachrichtigungen)
 
 ---
@@ -123,6 +144,15 @@ Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `
 Automated availability confirmation for [malt.de](https://www.malt.de) freelancer profiles.
 
 Malt requires freelancers to confirm their availability every 7 days to maintain the "availability confirmed" badge on their profile. Without confirmation, visibility in search results decreases. This tool automates the entire process on **macOS, Linux, and Windows**.
+
+### Pricing
+
+| Plan | Price | Details |
+|------|-------|---------|
+| **Monthly** | 5 EUR/month | Cancel anytime |
+| **Lifetime** | 49 EUR one-time | Pay once, use forever |
+
+Purchase a license and get your key: **[malt-license.example.com](https://malt-license.example.com)**
 
 ### How it works
 
@@ -141,6 +171,16 @@ npm install
 # Install Playwright browsers (Chromium only)
 npx playwright install chromium
 ```
+
+### Activate license
+
+After purchasing a license, you'll receive a key in the format `MALT-XXXX-XXXX-XXXX-XXXX`.
+
+```bash
+npm run activate
+```
+
+Enter the license key when prompted. The key is stored locally in `license.json` (gitignored).
 
 ### Login
 
@@ -176,9 +216,10 @@ npm run install-schedule
 
 | Command | Description |
 |---------|-------------|
+| `npm run activate` | Enter and activate a license key |
 | `npm run setup` | Google SSO login (opens browser window) |
 | `npm run setup:login` | Email/password login (interactive terminal) |
-| `npm run confirm` | Confirm availability once |
+| `npm run confirm` | Confirm availability once (requires license) |
 | `npm run status` | Show current status (session, scheduler, last run) |
 | `npm run install-schedule` | Install scheduler (auto-detects OS) |
 | `npm run uninstall-schedule` | Remove the scheduler |
@@ -214,6 +255,7 @@ Logs are written to `logs/` with daily rotation. Screenshots are saved to `logs/
 - **macOS**, **Linux**, or **Windows**
 - Node.js >= 18
 - A Malt.de freelancer account
+- A valid license (monthly or lifetime)
 - Linux: `notify-send` (optional, for desktop notifications)
 
 ---
@@ -222,6 +264,10 @@ Logs are written to `logs/` with daily rotation. Screenshots are saved to `logs/
 
 Martin Pfeffer - [celox.io](https://celox.io)
 
-## License
+## Lizenz / License
 
-MIT
+Proprietary software. See [LICENSE](LICENSE) for details.
+
+Purchase at [malt-license.example.com](https://malt-license.example.com):
+- **5 EUR/Monat** (monthly subscription)
+- **49 EUR** (lifetime, one-time payment)

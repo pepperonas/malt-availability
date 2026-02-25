@@ -1,8 +1,8 @@
 # Marketing-Strategie: malt-availability
 
 > **Zielgruppe:** Freelancer auf malt.de, IT-Freiberufler, digitale Nomaden
-> **Produkt:** Open-Source Automatisierungstool für tägliche Verfügbarkeitsbestätigung
-> **Lizenz:** MIT (kostenlos & Open Source)
+> **Produkt:** Automatisierungstool für tägliche Verfügbarkeitsbestätigung
+> **Lizenz:** Proprietär (5 EUR/Monat oder 49 EUR Lifetime via Stripe)
 
 ---
 
@@ -74,7 +74,6 @@
 ## 4. Key Selling Points / USPs
 
 ### Technische USPs
-- ✅ **100% Open Source (MIT)** — vollständige Transparenz, keine Vendor Lock-ins
 - ✅ **Lokale Ausführung** — keine Cloud, keine Datenweitergabe an Dritte
 - ✅ **Persistente Sessions** — Login einmal, läuft danach monatelang automatisch
 - ✅ **Zwei Login-Methoden** — Google SSO oder E-Mail/Passwort
@@ -83,8 +82,8 @@
 - ✅ **Logging & Screenshots** — vollständige Nachvollziehbarkeit bei Problemen
 
 ### Business USPs
-- 💰 **Kostenlos** — keine Abos, keine versteckten Kosten
-- ⏱️ **5-Minuten-Setup** — npm install, npm run setup, fertig
+- 💰 **Faire Preise** — 5 EUR/Monat oder 49 EUR Lifetime, keine versteckten Kosten
+- ⏱️ **5-Minuten-Setup** — npm install, npm run activate, npm run setup, fertig
 - 🔒 **Sicherheit** — Passwörter werden nicht gespeichert, nur Browser-Sessions
 - 🚀 **Zuverlässigkeit** — täglich um 10:00 Uhr + beim Login
 - 🛠️ **Wartungsfrei** — einmal einrichten, dann läuft es
@@ -336,47 +335,39 @@ Beste Grüße,
 
 ## 7. Pricing-Strategie & Business-Modelle
 
-### Aktuell: 100% Free & Open Source
-- **MIT-Lizenz** — keine Einschränkungen
-- **Vorteil:** Schnelle Adoption, Community-Building, Trust
-- **Nachteil:** Kein direkter Revenue
+### Aktives Preismodell: Stripe-basierte Lizenzierung
 
-### Zukünftige Monetarisierung (optional)
+**Monats-Abo (5 EUR/Monat):**
+- Voller Funktionsumfang
+- Alle Updates inklusive
+- E-Mail Support
+- Jederzeit kündbar (Lizenz wird bei Kündigung deaktiviert)
 
-#### Modell 1: Freemium mit Managed Service
-**Free Tier (Open Source):**
-- Alles wie jetzt: Selbst-Hosting, eigene Wartung
-- GitHub-Support via Issues
+**Lifetime-Lizenz (49 EUR einmalig):**
+- Voller Funktionsumfang
+- Alle Updates inklusive
+- E-Mail Support
+- Einmal zahlen, für immer nutzen
 
-**Premium Tier (29€/Monat):**
-- **Managed Cloud-Version** — wir hosten, du meldest dich nur an
-- **Multi-Profile-Support** — mehrere Malt-Accounts pro User
-- **Erweiterte Analytics** — Profil-Aufrufe, Sichtbarkeits-Trends
-- **Priority-Support** — E-Mail/Chat-Support innerhalb 24h
-- **Auto-Updates** — neue Features ohne manuelles Pull
+**Technische Umsetzung:**
+- Bezahlung über Stripe Checkout (Kreditkarte, etc.)
+- Stripe Webhook generiert automatisch einen Lizenzschlüssel
+- Nutzer aktiviert den Schlüssel lokal via `npm run activate`
+- Tägliche Re-Validierung gegen den Lizenz-Server
+- Bei Abo-Kündigung wird der Schlüssel serverseitig deaktiviert
 
-**Enterprise Tier (99€/Monat):**
+### Zukünftige Erweiterungen (optional)
+
+#### Enterprise Tier (geplant)
 - Für Agenturen mit 5+ Freelancer-Profilen
-- White-Label-Option
-- Custom Scheduling (nicht nur 10:00 Uhr)
-- API-Zugang für eigene Integrationen
+- Multi-Profile-Support
+- Custom Scheduling
+- API-Zugang
 
-#### Modell 2: "Buy me a Coffee" / Sponsorship
-- **GitHub Sponsors** aktivieren
-- Tiers: 5€, 10€, 25€/Monat
-- Incentives:
-  - 5€: Name im README
-  - 10€: Early Access zu neuen Features
-  - 25€: 1:1 Setup-Call (30 Min)
-
-#### Modell 3: Related Services
+#### Related Services
 - **Setup-Service:** 50€ Einrichtung via Screen-Share (für nicht-technische Freelancer)
 - **Custom Automation:** 500€ für individualisierte Freelancer-Automatisierungen
 - **Consulting:** Freelancer-Profil-Optimierung + Automation-Audit (150€/h)
-
-#### Modell 4: Affiliate / Partnerschaften
-- **Malt.de Partnership** (unrealistisch, aber möglich)
-- **Tool-Bundles** mit anderen Freelancer-Tools (z.B. Buchhaltungssoftware)
 
 ---
 
