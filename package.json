@@ -5,6 +5,7 @@
   "main": "src/confirm-availability.js",
   "scripts": {
     "setup": "node src/setup.js",
+    "setup:login": "node src/setup-login.js",
     "confirm": "node src/confirm-availability.js",
     "status": "node src/status.js",
     "install-schedule": "bash scripts/install-launchagent.sh",

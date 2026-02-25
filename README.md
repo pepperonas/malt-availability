@@ -21,8 +21,9 @@ npm install
 # Install Playwright browsers (Chromium only)
 npx playwright install chromium
 
-# Log in to Malt via Google SSO (opens a browser window)
-npm run setup
+# Log in — choose one:
+npm run setup          # Google SSO (opens browser window)
+npm run setup:login    # Email + password (interactive terminal prompt)
 
 # Verify it works
 npm run confirm
@@ -35,7 +36,8 @@ npm run install-schedule
 
 | Command | Description |
 |---------|-------------|
-| `npm run setup` | Opens browser for initial Google SSO login |
+| `npm run setup` | Opens browser for Google SSO login |
+| `npm run setup:login` | Interactive email/password login via terminal |
 | `npm run confirm` | Run availability confirmation once |
 | `npm run status` | Show current status (session, scheduler, last run) |
 | `npm run install-schedule` | Install macOS LaunchAgent |
