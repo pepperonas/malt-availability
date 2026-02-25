@@ -3,8 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.50+-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
-[![Platform](https://img.shields.io/badge/Platform-macOS-000000?logo=apple&logoColor=white)](https://www.apple.com/macos/)
+[![macOS](https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white)](https://www.apple.com/macos/)
+[![Linux](https://img.shields.io/badge/Linux-supported-FCC624?logo=linux&logoColor=black)](https://www.linux.org/)
+[![Windows](https://img.shields.io/badge/Windows-supported-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![Malt](https://img.shields.io/badge/Malt.de-Freelancer-FC5757)](https://www.malt.de/)
+[![Tests](https://img.shields.io/badge/Tests-29%20passed-brightgreen)](test/)
+[![Automation](https://img.shields.io/badge/Automation-Daily-blue)](scripts/)
 
 > **[Deutsch](#deutsch)** | **[English](#english)**
 
@@ -16,15 +20,15 @@
 
 Automatische Verfügbarkeitsbestätigung für [malt.de](https://www.malt.de) Freelancer-Profile.
 
-Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, um das Badge "Verfügbarkeit bestätigt" auf dem Profil zu behalten. Ohne Bestätigung sinkt die Sichtbarkeit in den Suchergebnissen. Dieses Tool automatisiert den gesamten Vorgang auf macOS.
+Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, um das Badge "Verfügbarkeit bestätigt" auf dem Profil zu behalten. Ohne Bestätigung sinkt die Sichtbarkeit in den Suchergebnissen. Dieses Tool automatisiert den gesamten Vorgang auf **macOS, Linux und Windows**.
 
 ### So funktioniert's
 
 1. Nutzt [Playwright](https://playwright.dev/) mit einem **persistenten Browser-Kontext**, um die Login-Session dauerhaft zu speichern
 2. Navigiert zum Malt Freelancer-Dashboard
 3. Öffnet den Verfügbarkeits-Dialog und klickt "Ja" + "Bestätigen"
-4. Sendet macOS-Benachrichtigungen bei Erfolg oder Fehler
-5. Läuft automatisch per macOS LaunchAgent — startet beim Login und wiederholt sich täglich um 10:00 Uhr
+4. Sendet Desktop-Benachrichtigungen bei Erfolg oder Fehler (macOS, Linux, Windows)
+5. Läuft automatisch per Scheduler — startet beim Login und wiederholt sich täglich um 10:00 Uhr
 
 ### Installation
 
@@ -74,22 +78,30 @@ npm run install-schedule
 | `npm run setup:login` | E-Mail/Passwort Login (interaktiv im Terminal) |
 | `npm run confirm` | Verfügbarkeit einmalig bestätigen |
 | `npm run status` | Aktuellen Status anzeigen (Session, Scheduler, letzter Lauf) |
-| `npm run install-schedule` | macOS LaunchAgent installieren |
-| `npm run uninstall-schedule` | LaunchAgent entfernen |
+| `npm run install-schedule` | Scheduler installieren (erkennt OS automatisch) |
+| `npm run uninstall-schedule` | Scheduler entfernen |
+| `npm test` | Unit Tests ausführen |
 
-### Scheduling
+### Scheduling (plattformspezifisch)
 
-Der macOS LaunchAgent (`com.celox.malt-availability`):
+Der Scheduler wird automatisch für dein Betriebssystem konfiguriert:
 
-- **Start beim Login** — läuft sofort nach der Anmeldung am Mac
+| Plattform | Mechanismus | Konfiguration |
+|-----------|------------|---------------|
+| **macOS** | LaunchAgent | `~/Library/LaunchAgents/com.celox.malt-availability.plist` |
+| **Linux** | systemd User Timer | `~/.config/systemd/user/malt-availability.timer` |
+| **Windows** | Task Scheduler | Task `MaltAvailability` |
+
+Auf allen Plattformen:
+- **Start beim Login** — läuft sofort nach der Anmeldung
 - **Täglich um 10:00 Uhr** — wiederholt sich jeden Tag, um das 7-Tage-Fenster zuverlässig abzudecken
-- **Überlebt Neustarts** — launchd verwaltet den Lebenszyklus automatisch
+- **Überlebt Neustarts** — der jeweilige Scheduler verwaltet den Lebenszyklus automatisch
 
 Der Browser läuft off-screen (nicht-headless, um Cloudflare zu umgehen) und stört nicht bei der Arbeit.
 
 ### Session-Verwaltung
 
-Die Browser-Session wird in `browser-data/` gespeichert (gitignored). Wenn die Session abläuft (Google-Sessions halten typischerweise Wochen bis Monate), erscheint eine macOS-Benachrichtigung mit der Aufforderung, `npm run setup` oder `npm run setup:login` erneut auszuführen.
+Die Browser-Session wird in `browser-data/` gespeichert (gitignored). Wenn die Session abläuft (Google-Sessions halten typischerweise Wochen bis Monate), erscheint eine Desktop-Benachrichtigung mit der Aufforderung, `npm run setup` oder `npm run setup:login` erneut auszuführen.
 
 ### Logs
 
@@ -97,9 +109,10 @@ Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `
 
 ### Voraussetzungen
 
-- macOS
+- **macOS**, **Linux** oder **Windows**
 - Node.js >= 18
 - Ein Malt.de Freelancer-Konto
+- Linux: `notify-send` (optional, für Desktop-Benachrichtigungen)
 
 ---
 
@@ -109,15 +122,15 @@ Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `
 
 Automated availability confirmation for [malt.de](https://www.malt.de) freelancer profiles.
 
-Malt requires freelancers to confirm their availability every 7 days to maintain the "availability confirmed" badge on their profile. Without confirmation, visibility in search results decreases. This tool automates the entire process on macOS.
+Malt requires freelancers to confirm their availability every 7 days to maintain the "availability confirmed" badge on their profile. Without confirmation, visibility in search results decreases. This tool automates the entire process on **macOS, Linux, and Windows**.
 
 ### How it works
 
 1. Uses [Playwright](https://playwright.dev/) with a **persistent browser context** to maintain the login session permanently
 2. Navigates to the Malt freelancer dashboard
 3. Opens the availability dialog and clicks "Ja" + "Bestätigen"
-4. Sends macOS notifications on success or failure
-5. Runs automatically via macOS LaunchAgent — starts at login and repeats daily at 10:00 AM
+4. Sends desktop notifications on success or failure (macOS, Linux, Windows)
+5. Runs automatically via scheduler — starts at login and repeats daily at 10:00 AM
 
 ### Installation
 
@@ -167,22 +180,30 @@ npm run install-schedule
 | `npm run setup:login` | Email/password login (interactive terminal) |
 | `npm run confirm` | Confirm availability once |
 | `npm run status` | Show current status (session, scheduler, last run) |
-| `npm run install-schedule` | Install macOS LaunchAgent |
-| `npm run uninstall-schedule` | Remove the LaunchAgent |
+| `npm run install-schedule` | Install scheduler (auto-detects OS) |
+| `npm run uninstall-schedule` | Remove the scheduler |
+| `npm test` | Run unit tests |
 
-### Scheduling
+### Scheduling (platform-specific)
 
-The macOS LaunchAgent (`com.celox.malt-availability`):
+The scheduler is automatically configured for your operating system:
 
-- **Start at login** — runs immediately when you log into your Mac
+| Platform | Mechanism | Configuration |
+|----------|-----------|---------------|
+| **macOS** | LaunchAgent | `~/Library/LaunchAgents/com.celox.malt-availability.plist` |
+| **Linux** | systemd user timer | `~/.config/systemd/user/malt-availability.timer` |
+| **Windows** | Task Scheduler | Task `MaltAvailability` |
+
+On all platforms:
+- **Start at login** — runs immediately when you log in
 - **Daily at 10:00 AM** — repeats every day to keep the 7-day window covered
-- **Survives reboots** — launchd manages the lifecycle automatically
+- **Survives reboots** — the respective scheduler manages the lifecycle automatically
 
 The browser window runs off-screen (non-headless to bypass Cloudflare) so it won't interfere with your work.
 
 ### Session management
 
-The browser session is stored in `browser-data/` (gitignored). If the session expires (Google SSO sessions typically last weeks to months), you'll receive a macOS notification prompting you to run `npm run setup` or `npm run setup:login` again.
+The browser session is stored in `browser-data/` (gitignored). If the session expires (Google SSO sessions typically last weeks to months), you'll receive a desktop notification prompting you to run `npm run setup` or `npm run setup:login` again.
 
 ### Logs
 
@@ -190,9 +211,10 @@ Logs are written to `logs/` with daily rotation. Screenshots are saved to `logs/
 
 ### Requirements
 
-- macOS
+- **macOS**, **Linux**, or **Windows**
 - Node.js >= 18
 - A Malt.de freelancer account
+- Linux: `notify-send` (optional, for desktop notifications)
 
 ---
 

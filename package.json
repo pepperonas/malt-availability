@@ -8,8 +8,9 @@
     "setup:login": "node src/setup-login.js",
     "confirm": "node src/confirm-availability.js",
     "status": "node src/status.js",
-    "install-schedule": "bash scripts/install-launchagent.sh",
-    "uninstall-schedule": "bash scripts/uninstall-launchagent.sh"
+    "install-schedule": "node scripts/install-schedule.js",
+    "uninstall-schedule": "node scripts/uninstall-schedule.js",
+    "test": "node --test test/*.test.js"
   },
   "author": "Martin Pfeffer <celox.io>",
   "license": "MIT",

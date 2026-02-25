@@ -19,10 +19,21 @@ function ensureDir(dir) {
 
 function notify(title, message) {
   try {
-    execFileSync('osascript', [
-      '-e',
-      `display notification "${message}" with title "${title}"`,
-    ]);
+    const platform = process.platform;
+    if (platform === 'darwin') {
+      execFileSync('osascript', [
+        '-e',
+        `display notification "${message}" with title "${title}"`,
+      ]);
+    } else if (platform === 'linux') {
+      execFileSync('notify-send', [title, message]);
+    } else if (platform === 'win32') {
+      execFileSync('powershell', [
+        '-Command',
+        `[System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') | Out-Null; ` +
+          `[System.Windows.Forms.MessageBox]::Show('${message.replace(/'/g, "''")}', '${title.replace(/'/g, "''")}', 'OK', 'Information') | Out-Null`,
+      ]);
+    }
   } catch {
     // notification is best-effort
   }

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Status check - Shows the current state of the automation.
+ * Cross-platform: macOS (LaunchAgent), Linux (systemd), Windows (Task Scheduler).
  */
 
 const fs = require('fs');
@@ -8,20 +9,59 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 const config = require('./config');
 
-function checkLaunchAgent() {
-  const plistPath = path.join(
-    process.env.HOME,
-    'Library/LaunchAgents/com.celox.malt-availability.plist'
-  );
-  if (!fs.existsSync(plistPath)) return 'not installed';
+function checkScheduler() {
+  const platform = process.platform;
 
-  try {
-    const output = execFileSync('launchctl', ['list'], { encoding: 'utf-8' });
-    if (output.includes('com.celox.malt-availability')) return 'active';
-    return 'installed but not loaded';
-  } catch {
-    return 'installed (status unknown)';
+  if (platform === 'darwin') {
+    const plistPath = path.join(
+      process.env.HOME,
+      'Library/LaunchAgents/com.celox.malt-availability.plist'
+    );
+    if (!fs.existsSync(plistPath)) return 'not installed (macOS LaunchAgent)';
+    try {
+      const output = execFileSync('launchctl', ['list'], { encoding: 'utf-8' });
+      if (output.includes('com.celox.malt-availability')) return 'active (macOS LaunchAgent)';
+      return 'installed but not loaded (macOS LaunchAgent)';
+    } catch {
+      return 'installed (status unknown)';
+    }
   }
+
+  if (platform === 'linux') {
+    const timerPath = path.join(
+      process.env.HOME,
+      '.config/systemd/user/malt-availability.timer'
+    );
+    if (!fs.existsSync(timerPath)) return 'not installed (systemd timer)';
+    try {
+      const output = execFileSync(
+        'systemctl',
+        ['--user', 'is-active', 'malt-availability.timer'],
+        { encoding: 'utf-8' }
+      ).trim();
+      return output === 'active'
+        ? 'active (systemd timer)'
+        : `${output} (systemd timer)`;
+    } catch {
+      return 'installed but inactive (systemd timer)';
+    }
+  }
+
+  if (platform === 'win32') {
+    try {
+      const output = execFileSync(
+        'schtasks',
+        ['/Query', '/TN', 'MaltAvailability', '/FO', 'LIST'],
+        { encoding: 'utf-8' }
+      );
+      if (output.includes('Ready') || output.includes('Running')) return 'active (Task Scheduler)';
+      return 'installed (Task Scheduler)';
+    } catch {
+      return 'not installed (Task Scheduler)';
+    }
+  }
+
+  return 'unsupported platform';
 }
 
 function getLastLog() {
@@ -54,7 +94,8 @@ function hasSession() {
 
 console.log('\n  Malt Availability - Status');
 console.log('  -------------------------');
+console.log(`  Platform:   ${process.platform}`);
 console.log(`  Session:    ${hasSession() ? 'saved' : 'not found (run: npm run setup)'}`);
-console.log(`  Scheduler:  ${checkLaunchAgent()}`);
+console.log(`  Scheduler:  ${checkScheduler()}`);
 console.log(`  Last run:   ${getLastLog()}`);
 console.log('');
