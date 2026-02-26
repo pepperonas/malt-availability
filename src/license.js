@@ -13,13 +13,6 @@ const path = require('path');
 const readline = require('readline');
 const config = require('./config');
 
-// Master key — bypasses server validation entirely
-const MASTER_KEY = 'K7M2-R9X4-BN6W-P3HT';
-
-function isMasterKey(key) {
-  return key === MASTER_KEY;
-}
-
 function ask(question) {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -123,29 +116,6 @@ async function activate() {
     process.exit(1);
   }
 
-  // Master key — activate immediately without server
-  if (isMasterKey(key)) {
-    saveLicense({
-      key,
-      type: 'lifetime',
-      email: 'admin',
-      activatedAt: new Date().toISOString(),
-      validatedAt: new Date().toISOString(),
-    });
-    console.log('');
-    console.log('License activated successfully!');
-    console.log('  Type: lifetime');
-    console.log('');
-    console.log('You can now run: npm run confirm');
-    return;
-  }
-
-  // Validate format
-  if (!/^PULSE-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}$/.test(key)) {
-    console.error('Invalid key format. Expected: PULSE-XXXX-XXXX-XXXX-XXXX');
-    process.exit(1);
-  }
-
   console.log('Validating license key...');
 
   const result = await validateKey(key);
@@ -177,11 +147,6 @@ async function checkLicense() {
 
   if (!license || !license.key) {
     return { valid: false, error: 'No license found. Run "npm run activate" first.' };
-  }
-
-  // Master key is always valid — no server check needed
-  if (isMasterKey(license.key)) {
-    return { valid: true, type: 'lifetime' };
   }
 
   // Re-validate against server periodically (every 24h)

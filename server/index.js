@@ -202,8 +202,8 @@ app.post('/api/validate-license', rateLimit, (req, res) => {
     return res.status(400).json({ valid: false, error: 'No license key provided' });
   }
 
-  // Master key — always valid
-  if (key === 'K7M2-R9X4-BN6W-P3HT') {
+  // Master key — always valid (read from environment, not in source code)
+  if (process.env.MASTER_KEY && key === process.env.MASTER_KEY) {
     return res.json({ valid: true, type: 'lifetime', email: 'admin', createdAt: null });
   }
 
