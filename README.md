@@ -1,5 +1,9 @@
 # ProfilePulse
 
+<p align="center">
+  <img src="profilepulse.png" alt="ProfilePulse" width="600">
+</p>
+
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](#lizenz--license)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.50+-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
