@@ -36,6 +36,8 @@ module.exports = {
   LICENSE_SERVER_URL: process.env.LICENSE_SERVER_URL || 'https://profilepulse.celox.io',
   LICENSE_FILE_PATH: path.join(PROJECT_DIR, 'license.json'),
   SUCCESS_FILE_PATH: path.join(PROJECT_DIR, 'last-success.json'),
+  TRIAL_FILE_PATH: path.join(PROJECT_DIR, 'trial.json'),
+  TRIAL_MAX_USES: 2,
   STALENESS_WARNING_DAYS: 5,
   LICENSE_GRACE_PERIOD_DAYS: 7,
 };

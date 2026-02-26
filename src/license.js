@@ -141,12 +141,38 @@ async function activate() {
   console.log('You can now run: npm run confirm');
 }
 
+function loadTrial() {
+  if (!fs.existsSync(config.TRIAL_FILE_PATH)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(config.TRIAL_FILE_PATH, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function saveTrial(data) {
+  fs.writeFileSync(config.TRIAL_FILE_PATH, JSON.stringify(data, null, 2));
+}
+
 // Also export for use in confirm-availability.js
 async function checkLicense() {
   const license = loadLicense();
 
   if (!license || !license.key) {
-    return { valid: false, error: 'No license found. Run "npm run activate" first.' };
+    // Trial mode: allow TRIAL_MAX_USES free confirmations without a license
+    let trial = loadTrial();
+    if (!trial) {
+      trial = { uses: 0, startedAt: new Date().toISOString() };
+    }
+
+    if (trial.uses < config.TRIAL_MAX_USES) {
+      trial.uses++;
+      saveTrial(trial);
+      const remaining = config.TRIAL_MAX_USES - trial.uses;
+      return { valid: true, type: 'trial', trialRemaining: remaining };
+    }
+
+    return { valid: false, error: 'Trial expired (2 free uses). Run "npm run activate" to enter a license key.' };
   }
 
   // Re-validate against server periodically (every 24h)

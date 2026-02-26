@@ -6,5 +6,6 @@ browser-data/
 .env
 license.json
 last-success.json
+trial.json
 server/licenses.json
 server/node_modules/

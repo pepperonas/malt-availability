@@ -330,6 +330,13 @@ async function run() {
   if (licenseStatus.offline) {
     log.warn(`License server unreachable. Grace period: ${licenseStatus.graceDaysRemaining} day(s) remaining.`);
   }
+  if (licenseStatus.type === 'trial') {
+    const remaining = licenseStatus.trialRemaining;
+    log.info(`Trial mode: ${remaining} free use(s) remaining after this run.`);
+    if (remaining === 0) {
+      log.warn('This is your last free trial run. Purchase a license at: ' + config.LICENSE_SERVER_URL);
+    }
+  }
   log.info(`License valid (${licenseStatus.type})`);
 
   ensureDir(config.BROWSER_DATA_DIR);
