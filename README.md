@@ -36,7 +36,7 @@ ProfilePulse erledigt das automatisch. Einmal einrichten, nie wieder daran denke
 | **Monats-Abo** | 5 EUR/Monat | Jederzeit kuendbar |
 | **Lifetime** | 49 EUR einmalig | Einmal zahlen, fuer immer nutzen |
 
-Lizenz kaufen: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
+Lizenz kaufen: **[profilepulse.celox.io](https://profilepulse.celox.io)**
 
 ### So funktioniert's
 
@@ -130,7 +130,7 @@ ProfilePulse handles it automatically. Set up once, never think about it again. 
 | **Monthly** | 5 EUR/month | Cancel anytime |
 | **Lifetime** | 49 EUR one-time | Pay once, use forever |
 
-Purchase a license: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
+Purchase a license: **[profilepulse.celox.io](https://profilepulse.celox.io)**
 
 ### How it works
 
@@ -213,6 +213,6 @@ Martin Pfeffer - [celox.io](https://celox.io)
 
 Proprietary software. See [LICENSE](LICENSE) for details.
 
-Purchase at [profilepulse-license.example.com](https://profilepulse-license.example.com):
+Purchase at [profilepulse.celox.io](https://profilepulse.celox.io):
 - **5 EUR/Monat** (monthly subscription)
 - **49 EUR** (lifetime, one-time payment)
