@@ -31,9 +31,11 @@ module.exports = {
   MALT_DASHBOARD_URL: 'https://www.malt.de/dashboard/freelancer/',
   MALT_SIGNIN_URL: 'https://www.malt.de/signin',
   MALT_BASE_URL: 'https://www.malt.de',
-  PROFILE_URL: 'https://www.malt.de/profile/martinpfeffer',
   TIMEOUT_MS: 30000,
   NAVIGATION_TIMEOUT_MS: 60000,
   LICENSE_SERVER_URL: process.env.LICENSE_SERVER_URL || 'https://malt-license.example.com',
   LICENSE_FILE_PATH: path.join(PROJECT_DIR, 'license.json'),
+  SUCCESS_FILE_PATH: path.join(PROJECT_DIR, 'last-success.json'),
+  STALENESS_WARNING_DAYS: 5,
+  LICENSE_GRACE_PERIOD_DAYS: 7,
 };

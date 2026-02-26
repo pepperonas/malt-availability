@@ -10,10 +10,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const config = require('./config');
 const log = require('./logger');
-
-function ensureDir(dir) {
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-}
+const { ensureDir } = require('./utils');
 
 async function setup() {
   log.info('=== Malt availability setup started ===');

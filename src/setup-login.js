@@ -12,10 +12,7 @@ const fs = require('fs');
 const readline = require('readline');
 const config = require('./config');
 const log = require('./logger');
-
-function ensureDir(dir) {
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-}
+const { ensureDir } = require('./utils');
 
 function prompt(question) {
   const rl = readline.createInterface({

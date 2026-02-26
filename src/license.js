@@ -168,6 +168,14 @@ async function checkLicense() {
       saveLicense(license);
       return { valid: true, type: result.type };
     }
+
+    // Grace period: allow offline usage for up to N days after last successful validation
+    const gracePeriodMs = config.LICENSE_GRACE_PERIOD_DAYS * 24 * 60 * 60 * 1000;
+    if (lastValidated > 0 && Date.now() - lastValidated < gracePeriodMs) {
+      const daysRemaining = Math.ceil((lastValidated + gracePeriodMs - Date.now()) / (24 * 60 * 60 * 1000));
+      return { valid: true, type: license.type, offline: true, graceDaysRemaining: daysRemaining };
+    }
+
     return { valid: false, error: result.error || 'License no longer valid' };
   }
 

@@ -92,10 +92,24 @@ function hasSession() {
   return fs.existsSync(path.join(config.BROWSER_DATA_DIR, 'Default'));
 }
 
+function getLastSuccess() {
+  if (!fs.existsSync(config.SUCCESS_FILE_PATH)) return 'never';
+  try {
+    const data = JSON.parse(fs.readFileSync(config.SUCCESS_FILE_PATH, 'utf8'));
+    const date = new Date(data.lastSuccess);
+    const daysSince = Math.floor((Date.now() - date.getTime()) / (24 * 60 * 60 * 1000));
+    const warning = daysSince >= config.STALENESS_WARNING_DAYS ? ' (!)' : '';
+    return `${date.toLocaleString()} (${daysSince}d ago)${warning}`;
+  } catch {
+    return 'unknown';
+  }
+}
+
 console.log('\n  Malt Availability - Status');
 console.log('  -------------------------');
-console.log(`  Platform:   ${process.platform}`);
-console.log(`  Session:    ${hasSession() ? 'saved' : 'not found (run: npm run setup)'}`);
-console.log(`  Scheduler:  ${checkScheduler()}`);
-console.log(`  Last run:   ${getLastLog()}`);
+console.log(`  Platform:      ${process.platform}`);
+console.log(`  Session:       ${hasSession() ? 'saved' : 'not found (run: npm run setup)'}`);
+console.log(`  Scheduler:     ${checkScheduler()}`);
+console.log(`  Last success:  ${getLastSuccess()}`);
+console.log(`  Last log:      ${getLastLog()}`);
 console.log('');

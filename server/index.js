@@ -96,6 +96,7 @@ app.post(
           createdAt: new Date().toISOString(),
           active: true,
           stripeSessionId: session.id,
+          stripeCustomerId: session.customer || null,
         });
         saveLicenses(licenses);
         console.log(`License created for ${email}: ${licenseKey} (${mode})`);
@@ -104,21 +105,22 @@ app.post(
 
     if (event.type === 'customer.subscription.deleted') {
       const subscription = event.data.object;
+      const customerId = subscription.customer;
       const licenses = loadLicenses();
+      let deactivated = 0;
       const updated = licenses.map((lic) => {
         if (
           lic.type === 'monthly' &&
-          lic.stripeSessionId &&
-          lic.active
+          lic.active &&
+          lic.stripeCustomerId === customerId
         ) {
-          // Deactivate monthly licenses for this customer
-          // In production, match by Stripe customer ID
           lic.active = false;
+          deactivated++;
         }
         return lic;
       });
       saveLicenses(updated);
-      console.log('Subscription cancelled, licenses deactivated');
+      console.log(`Subscription cancelled for customer ${customerId}, ${deactivated} license(s) deactivated`);
     }
 
     res.json({ received: true });
@@ -128,6 +130,35 @@ app.post(
 // --- JSON body parser for all other routes ---
 
 app.use(express.json());
+
+// --- Health check ---
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// --- Rate limiting for license validation ---
+
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const RATE_LIMIT_MAX = 10; // max 10 requests per IP per minute
+
+function rateLimit(req, res, next) {
+  const ip = req.ip || req.connection.remoteAddress;
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW_MS) {
+    rateLimitMap.set(ip, { windowStart: now, count: 1 });
+    return next();
+  }
+
+  entry.count++;
+  if (entry.count > RATE_LIMIT_MAX) {
+    return res.status(429).json({ valid: false, error: 'Too many requests. Try again later.' });
+  }
+  next();
+}
 
 // --- Create Checkout Session ---
 
@@ -164,7 +195,7 @@ app.post('/api/create-checkout', async (req, res) => {
 
 // --- Validate License ---
 
-app.post('/api/validate-license', (req, res) => {
+app.post('/api/validate-license', rateLimit, (req, res) => {
   const { key } = req.body;
 
   if (!key) {

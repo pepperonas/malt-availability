@@ -38,7 +38,6 @@ describe('config', () => {
     assert.ok(config.MALT_DASHBOARD_URL.startsWith('https://www.malt.de/'));
     assert.ok(config.MALT_SIGNIN_URL.startsWith('https://www.malt.de/'));
     assert.ok(config.MALT_BASE_URL.startsWith('https://www.malt.de'));
-    assert.ok(config.PROFILE_URL.startsWith('https://www.malt.de/'));
   });
 
   it('timeout values are positive numbers', () => {
