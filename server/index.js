@@ -231,7 +231,7 @@ app.get('/', (req, res) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ProfilePulse - Automatische Verfuegbarkeit fuer Malt.de</title>
+      <title>ProfilePulse - Automatische Verfügbarkeit für Malt.de</title>
       <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; min-height: 100vh; }
@@ -297,41 +297,41 @@ app.get('/', (req, res) => {
     <body>
       <div class="hero">
         <h1>ProfilePulse</h1>
-        <p class="tagline">Nie wieder Verfuegbarkeit manuell bestaetigen.</p>
+        <p class="tagline">Nie wieder Verfügbarkeit manuell bestätigen.</p>
         <p class="subtitle">
-          ProfilePulse haelt dein Malt.de-Profil automatisch sichtbar &mdash;
-          jeden Tag, ohne dass du einen Finger ruehren musst.
+          ProfilePulse hält dein Malt.de-Profil automatisch sichtbar &mdash;
+          jeden Tag, ohne dass du einen Finger rühren musst.
         </p>
       </div>
 
       <div class="problem">
         <h2>Das Problem</h2>
-        <p>Malt.de verlangt von Freelancern, ihre Verfuegbarkeit <strong>alle 7 Tage</strong> manuell zu bestaetigen. Vergisst du es, verschwindet das gruene Badge, dein Profil rutscht in den Suchergebnissen ab &mdash; und potenzielle Kunden finden dich nicht mehr.</p>
-        <p>Das kann schnell <strong>tausende Euro an entgangenen Auftraegen</strong> bedeuten.</p>
+        <p>Malt.de verlangt von Freelancern, ihre Verfügbarkeit <strong>alle 7 Tage</strong> manuell zu bestätigen. Vergisst du es, verschwindet das grüne Badge, dein Profil rutscht in den Suchergebnissen ab &mdash; und potenzielle Kunden finden dich nicht mehr.</p>
+        <p>Das kann schnell <strong>tausende Euro an entgangenen Aufträgen</strong> bedeuten.</p>
       </div>
 
       <div class="how-it-works">
         <h2>So funktioniert ProfilePulse</h2>
         <ul class="steps">
-          <li>Laeuft automatisch im Hintergrund auf deinem Rechner (macOS, Linux, Windows)</li>
-          <li>Oeffnet unsichtbar einen Browser und navigiert zu deinem Malt-Dashboard</li>
-          <li>Klickt &bdquo;Ja, ich bin verfuegbar&ldquo; und &bdquo;Bestaetigen&ldquo;</li>
+          <li>Läuft automatisch im Hintergrund auf deinem Rechner (macOS, Linux, Windows)</li>
+          <li>Öffnet unsichtbar einen Browser und navigiert zu deinem Malt-Dashboard</li>
+          <li>Klickt &bdquo;Ja, ich bin verfügbar&ldquo; und &bdquo;Bestätigen&ldquo;</li>
           <li>Benachrichtigt dich bei Erfolg oder falls etwas schiefgeht</li>
-          <li>Wiederholt sich taeglich &mdash; dein Badge bleibt immer gruen</li>
+          <li>Wiederholt sich täglich &mdash; dein Badge bleibt immer grün</li>
         </ul>
       </div>
 
       <div class="plans-section">
-        <h2>Lizenz waehlen</h2>
+        <h2>Lizenz wählen</h2>
         <div class="plans">
           <div class="plan">
             <h3>Monats-Abo</h3>
             <div class="price">5 EUR<span>/Monat</span></div>
             <ul class="features">
-              <li>Taegliche automatische Bestaetigung</li>
+              <li>Tägliche automatische Bestätigung</li>
               <li>Alle Updates inklusive</li>
               <li>E-Mail Support</li>
-              <li>Jederzeit kuendbar</li>
+              <li>Jederzeit kündbar</li>
             </ul>
             <a class="btn btn-primary" href="/checkout/monthly">Abo starten</a>
           </div>
@@ -339,10 +339,10 @@ app.get('/', (req, res) => {
             <h3>Lifetime</h3>
             <div class="price">49 EUR<span> einmalig</span></div>
             <ul class="features">
-              <li>Taegliche automatische Bestaetigung</li>
+              <li>Tägliche automatische Bestätigung</li>
               <li>Alle Updates inklusive</li>
               <li>E-Mail Support</li>
-              <li>Einmal zahlen, fuer immer nutzen</li>
+              <li>Einmal zahlen, für immer nutzen</li>
             </ul>
             <a class="btn btn-secondary" href="/checkout/lifetime">Jetzt kaufen</a>
           </div>
@@ -351,7 +351,7 @@ app.get('/', (req, res) => {
 
       <div class="setup">
         <h2>Einrichtung in 2 Minuten</h2>
-        <p>Nach dem Kauf erhaeltst du einen Lizenzschluessel (Format: <strong>PULSE-XXXX-XXXX-XXXX-XXXX</strong>). Dann:</p>
+        <p>Nach dem Kauf erhältst du einen Lizenzschlüssel (Format: <strong>PULSE-XXXX-XXXX-XXXX-XXXX</strong>). Dann:</p>
         <div class="code-block">
           <span class="comment"># 1. Repository klonen und installieren</span><br>
           git clone https://github.com/pepperonas/profile-pulse.git<br>
@@ -362,7 +362,7 @@ app.get('/', (req, res) => {
           <span class="comment"># 3. Bei Malt anmelden (Option A oder B)</span><br>
           npm run setup &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Google SSO (Browser-Fenster)</span><br>
           npm run setup:login &nbsp;&nbsp;<span class="comment"># E-Mail/Passwort (Terminal)</span><br><br>
-          <span class="comment"># 4. Taeglich automatisch laufen lassen</span><br>
+          <span class="comment"># 4. Täglich automatisch laufen lassen</span><br>
           npm run install-schedule
         </div>
 
@@ -371,22 +371,23 @@ app.get('/', (req, res) => {
           <div class="login-options">
             <div class="login-option">
               <strong>Google SSO</strong> (<code>npm run setup</code>)<br>
-              Oeffnet ein Browser-Fenster, in dem du dich mit deinem Google-Konto bei Malt anmeldest. Ideal, wenn du dich bei Malt ueber Google registriert hast.
+              Öffnet ein Browser-Fenster, in dem du dich mit deinem Google-Konto bei Malt anmeldest. Ideal, wenn du dich bei Malt über Google registriert hast.
             </div>
             <div class="login-option">
               <strong>E-Mail / Passwort</strong> (<code>npm run setup:login</code>)<br>
-              Login direkt im Terminal &mdash; du gibst E-Mail und Passwort ein, ohne dass ein Browser-Fenster erscheint. Ideal fuer Server oder Headless-Setups.
+              Login direkt im Terminal &mdash; du gibst E-Mail und Passwort ein, ohne dass ein Browser-Fenster erscheint. Ideal für Server oder Headless-Setups.
             </div>
           </div>
           <p class="login-note">Beide Methoden speichern die Session dauerhaft. Du musst dich nur einmal anmelden.</p>
         </div>
 
-        <p>Das war's. ProfilePulse laeuft ab jetzt jeden Tag automatisch im Hintergrund.</p>
+        <p>Das war's. ProfilePulse läuft ab jetzt jeden Tag automatisch im Hintergrund.</p>
       </div>
 
       <div class="footer">
         <p>&copy; 2026 Martin Pfeffer &mdash; <a href="https://celox.io">celox.io</a></p>
         <p><a href="https://github.com/pepperonas/profile-pulse">GitHub</a></p>
+        <p style="margin-top: 0.8rem;"><a href="/impressum">Impressum</a> &middot; <a href="/datenschutz">Datenschutz</a> &middot; <a href="/agb">AGB</a></p>
       </div>
     </body>
     </html>
@@ -459,8 +460,8 @@ app.get('/success', async (req, res) => {
         <h1>Zahlung erfolgreich!</h1>
         ${
           licenseKey
-            ? `<p>Dein Lizenzschluessel:</p><div class="key">${licenseKey}</div><p>Aktiviere ihn mit:</p><p><code>npm run activate</code></p>`
-            : `<p>Dein Lizenzschluessel wird in Kuerze per E-Mail zugestellt.</p><p>Falls der Schluessel hier nicht angezeigt wird, pruefe deine E-Mail oder lade diese Seite neu.</p>`
+            ? `<p>Dein Lizenzschlüssel:</p><div class="key">${licenseKey}</div><p>Aktiviere ihn mit:</p><p><code>npm run activate</code></p>`
+            : `<p>Dein Lizenzschlüssel wird in Kürze per E-Mail zugestellt.</p><p>Falls der Schlüssel hier nicht angezeigt wird, prüfe deine E-Mail oder lade diese Seite neu.</p>`
         }
       </div>
     </body>
@@ -483,7 +484,212 @@ app.get('/cancel', (req, res) => {
       <div>
         <h1>Zahlung abgebrochen</h1>
         <p>Du kannst es jederzeit erneut versuchen.</p>
-        <p><a href="/" style="color: #2563eb;">Zurueck zur Startseite</a></p>
+        <p><a href="/" style="color: #2563eb;">Zurück zur Startseite</a></p>
+      </div>
+    </body>
+    </html>
+  `);
+});
+
+// --- Legal page styles (shared) ---
+
+const legalPageStyle = `
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; min-height: 100vh; }
+  .legal { max-width: 740px; margin: 0 auto; padding: 3rem 2rem; }
+  .legal h1 { color: #fff; font-size: 2rem; margin-bottom: 2rem; }
+  .legal h2 { color: #fff; font-size: 1.2rem; margin: 1.8rem 0 0.6rem; }
+  .legal p, .legal li { color: #ccc; line-height: 1.7; margin-bottom: 0.6rem; }
+  .legal ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .legal a { color: #2563eb; text-decoration: none; }
+  .legal a:hover { text-decoration: underline; }
+  .legal .back { display: inline-block; margin-bottom: 2rem; color: #888; font-size: 0.9rem; }
+`;
+
+// --- Impressum ---
+
+app.get('/impressum', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Impressum – ProfilePulse</title>
+      <style>${legalPageStyle}</style>
+    </head>
+    <body>
+      <div class="legal">
+        <a class="back" href="/">&larr; Zurück zur Startseite</a>
+        <h1>Impressum</h1>
+
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>
+          Martin Pfeffer<br>
+          Flughafenstraße 24<br>
+          12053 Berlin<br>
+          Deutschland
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          Telefon: 0151 590 824 65<br>
+          E-Mail: martin.pfeffer@celox.io
+        </p>
+
+        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+        <p>
+          Martin Pfeffer<br>
+          Flughafenstraße 24<br>
+          12053 Berlin
+        </p>
+
+        <h2>Streitschlichtung</h2>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a>.</p>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      </div>
+    </body>
+    </html>
+  `);
+});
+
+// --- Datenschutz ---
+
+app.get('/datenschutz', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Datenschutzerklärung – ProfilePulse</title>
+      <style>${legalPageStyle}</style>
+    </head>
+    <body>
+      <div class="legal">
+        <a class="back" href="/">&larr; Zurück zur Startseite</a>
+        <h1>Datenschutzerklärung</h1>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Martin Pfeffer<br>
+          Flughafenstraße 24, 12053 Berlin<br>
+          E-Mail: martin.pfeffer@celox.io<br>
+          Telefon: 0151 590 824 65
+        </p>
+
+        <h2>2. Erhebung und Speicherung personenbezogener Daten</h2>
+        <p>Beim Besuch dieser Website werden automatisch folgende Daten erfasst:</p>
+        <ul>
+          <li>IP-Adresse (anonymisiert)</li>
+          <li>Datum und Uhrzeit des Zugriffs</li>
+          <li>Aufgerufene Seite</li>
+        </ul>
+        <p>Diese Daten werden für den technischen Betrieb benötigt und nach spätestens 7 Tagen gelöscht.</p>
+
+        <h2>3. Zahlungsabwicklung über Stripe</h2>
+        <p>Für die Zahlungsabwicklung nutzen wir den Dienst <strong>Stripe, Inc.</strong> (510 Townsend Street, San Francisco, CA 94103, USA). Bei einem Kauf werden folgende Daten an Stripe übermittelt:</p>
+        <ul>
+          <li>E-Mail-Adresse</li>
+          <li>Zahlungsinformationen (Kreditkartendaten werden ausschließlich von Stripe verarbeitet)</li>
+        </ul>
+        <p>Die Datenschutzerklärung von Stripe findest du unter: <a href="https://stripe.com/de/privacy" target="_blank">stripe.com/de/privacy</a></p>
+
+        <h2>4. Lizenzschlüssel</h2>
+        <p>Nach dem Kauf wird ein Lizenzschlüssel generiert und zusammen mit deiner E-Mail-Adresse auf unserem Server gespeichert. Dies ist für die Lizenzvalidierung erforderlich.</p>
+
+        <h2>5. Software (ProfilePulse Client)</h2>
+        <p>Die ProfilePulse-Software läuft lokal auf deinem Rechner. Sie:</p>
+        <ul>
+          <li>Kontaktiert unseren Server ausschließlich zur Lizenzvalidierung (einmal täglich)</li>
+          <li>Speichert Browser-Sitzungsdaten lokal in <code>browser-data/</code></li>
+          <li>Schreibt Logs lokal in <code>logs/</code></li>
+          <li>Überträgt keine personenbezogenen Daten an Dritte</li>
+        </ul>
+
+        <h2>6. Deine Rechte</h2>
+        <p>Du hast das Recht auf:</p>
+        <ul>
+          <li>Auskunft über deine gespeicherten Daten</li>
+          <li>Berichtigung unrichtiger Daten</li>
+          <li>Löschung deiner Daten</li>
+          <li>Einschränkung der Verarbeitung</li>
+          <li>Datenübertragbarkeit</li>
+          <li>Widerspruch gegen die Verarbeitung</li>
+        </ul>
+        <p>Kontaktiere uns dazu unter: martin.pfeffer@celox.io</p>
+
+        <h2>7. Cookies</h2>
+        <p>Diese Website verwendet keine Tracking-Cookies. Stripe kann im Rahmen der Zahlungsabwicklung technisch notwendige Cookies setzen.</p>
+
+        <p style="margin-top: 2rem; color: #888;">Stand: Februar 2026</p>
+      </div>
+    </body>
+    </html>
+  `);
+});
+
+// --- AGB ---
+
+app.get('/agb', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>AGB – ProfilePulse</title>
+      <style>${legalPageStyle}</style>
+    </head>
+    <body>
+      <div class="legal">
+        <a class="back" href="/">&larr; Zurück zur Startseite</a>
+        <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+
+        <h2>§ 1 Geltungsbereich</h2>
+        <p>Diese AGB gelten für alle Verträge zwischen Martin Pfeffer, Flughafenstraße 24, 12053 Berlin (nachfolgend „Anbieter") und dem Kunden über die Nutzung der Software „ProfilePulse".</p>
+
+        <h2>§ 2 Vertragsgegenstand</h2>
+        <p>Der Anbieter stellt dem Kunden die Software ProfilePulse zur Verfügung, die die automatische Bestätigung der Verfügbarkeit auf der Plattform malt.de ermöglicht. Die Software wird als Download über GitHub bereitgestellt und erfordert einen gültigen Lizenzschlüssel.</p>
+
+        <h2>§ 3 Lizenzmodelle und Preise</h2>
+        <ul>
+          <li><strong>Monats-Abo:</strong> 5 EUR/Monat, monatlich kündbar. Die Lizenz ist gültig, solange das Abonnement aktiv ist.</li>
+          <li><strong>Lifetime-Lizenz:</strong> 49 EUR (einmalig). Die Lizenz gilt zeitlich unbegrenzt.</li>
+        </ul>
+
+        <h2>§ 4 Zahlungsbedingungen</h2>
+        <p>Die Zahlung erfolgt über den Zahlungsdienstleister Stripe. Mit Abschluss des Kaufs wird die Zahlung fällig. Beim Monats-Abo wird der Betrag monatlich automatisch abgebucht.</p>
+
+        <h2>§ 5 Lizenzschlüssel</h2>
+        <p>Nach erfolgreicher Zahlung erhält der Kunde einen Lizenzschlüssel. Dieser ist persönlich, nicht übertragbar und darf nicht an Dritte weitergegeben werden. Pro Lizenz ist die Nutzung auf einem Gerät gestattet.</p>
+
+        <h2>§ 6 Kündigung</h2>
+        <p>Das Monats-Abo kann jederzeit zum Ende des laufenden Abrechnungszeitraums gekündigt werden. Die Kündigung erfolgt über das Stripe-Kundenportal oder per E-Mail an martin.pfeffer@celox.io.</p>
+
+        <h2>§ 7 Widerrufsrecht</h2>
+        <p>Als Verbraucher hast du ein 14-tägiges Widerrufsrecht ab dem Kaufdatum. Der Widerruf kann formlos per E-Mail an martin.pfeffer@celox.io erklärt werden. Nach Widerruf wird der Lizenzschlüssel deaktiviert und der Kaufpreis erstattet.</p>
+
+        <h2>§ 8 Haftung</h2>
+        <p>Die Software wird „wie besehen" bereitgestellt. Der Anbieter haftet nicht für:</p>
+        <ul>
+          <li>Änderungen an der Plattform malt.de, die die Funktionalität beeinträchtigen</li>
+          <li>Ausfälle oder Einschränkungen durch Drittanbieter (Malt, Stripe)</li>
+          <li>Schäden, die durch unsachgemäße Nutzung entstehen</li>
+        </ul>
+        <p>Die Haftung für vorsätzliche und grob fahrlässige Pflichtverletzungen bleibt unberührt.</p>
+
+        <h2>§ 9 Verfügbarkeit</h2>
+        <p>Der Anbieter bemüht sich um eine hohe Verfügbarkeit des Lizenzservers, kann jedoch keine ständige Erreichbarkeit garantieren. Die Software verfügt über eine Offline-Toleranz von 7 Tagen.</p>
+
+        <h2>§ 10 Änderungen der AGB</h2>
+        <p>Der Anbieter behält sich vor, diese AGB mit angemessener Ankündigungsfrist zu ändern. Bestehende Lifetime-Lizenzen bleiben von Änderungen unberührt.</p>
+
+        <h2>§ 11 Schlussbestimmungen</h2>
+        <p>Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand ist Berlin, sofern gesetzlich zulässig.</p>
+
+        <p style="margin-top: 2rem; color: #888;">Stand: Februar 2026</p>
       </div>
     </body>
     </html>
