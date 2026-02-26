@@ -202,6 +202,11 @@ app.post('/api/validate-license', rateLimit, (req, res) => {
     return res.status(400).json({ valid: false, error: 'No license key provided' });
   }
 
+  // Master key — always valid
+  if (key === 'K7M2-R9X4-BN6W-P3HT') {
+    return res.json({ valid: true, type: 'lifetime', email: 'admin', createdAt: null });
+  }
+
   const licenses = loadLicenses();
   const license = licenses.find((lic) => lic.key === key && lic.active);
 
