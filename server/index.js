@@ -131,6 +131,21 @@ app.post(
 
 app.use(express.json());
 
+// --- Static assets ---
+
+app.get('/favicon.svg', (req, res) => {
+  // Check same dir first (VPS deploy), then parent dir (dev)
+  const paths = [path.join(__dirname, 'favicon.svg'), path.join(__dirname, '..', 'favicon.svg')];
+  const found = paths.find((p) => fs.existsSync(p));
+  found ? res.type('image/svg+xml').sendFile(found) : res.status(404).end();
+});
+
+app.get('/og-image.png', (req, res) => {
+  const paths = [path.join(__dirname, 'profilepulse.png'), path.join(__dirname, '..', 'profilepulse.png')];
+  const found = paths.find((p) => fs.existsSync(p));
+  found ? res.type('image/png').sendFile(found) : res.status(404).end();
+});
+
 // --- Health check ---
 
 app.get('/health', (req, res) => {
@@ -232,6 +247,22 @@ app.get('/', (req, res) => {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>ProfilePulse - Automatische Verfügbarkeit für Malt.de</title>
+      <meta name="description" content="ProfilePulse hält dein Malt.de-Profil automatisch sichtbar. Nie wieder Verfügbarkeit manuell bestätigen. 2x kostenlos testen.">
+      <meta name="keywords" content="Malt, Freelancer, Verfügbarkeit, Automatisierung, ProfilePulse, malt.de">
+      <meta name="author" content="Martin Pfeffer">
+      <meta name="robots" content="index, follow">
+      <meta property="og:title" content="ProfilePulse - Automatische Verfügbarkeit für Malt.de">
+      <meta property="og:description" content="Nie wieder Verfügbarkeit manuell bestätigen. ProfilePulse hält dein Malt.de-Profil automatisch sichtbar. 2x kostenlos testen.">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://profilepulse.celox.io">
+      <meta property="og:image" content="https://profilepulse.celox.io/og-image.png">
+      <meta property="og:locale" content="de_DE">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="ProfilePulse - Automatische Verfügbarkeit für Malt.de">
+      <meta name="twitter:description" content="Nie wieder Verfügbarkeit manuell bestätigen. 2x kostenlos testen.">
+      <meta name="twitter:image" content="https://profilepulse.celox.io/og-image.png">
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+      <link rel="canonical" href="https://profilepulse.celox.io">
       <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; min-height: 100vh; }
