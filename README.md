@@ -1,4 +1,4 @@
-# malt-availability
+# ProfilePulse
 
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](#lizenz--license)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -20,7 +20,7 @@
 
 Automatische Verfügbarkeitsbestätigung für [malt.de](https://www.malt.de) Freelancer-Profile.
 
-Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, um das Badge "Verfügbarkeit bestätigt" auf dem Profil zu behalten. Ohne Bestätigung sinkt die Sichtbarkeit in den Suchergebnissen. Dieses Tool automatisiert den gesamten Vorgang auf **macOS, Linux und Windows**.
+Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, um das Badge "Verfügbarkeit bestätigt" auf dem Profil zu behalten. Ohne Bestätigung sinkt die Sichtbarkeit in den Suchergebnissen. ProfilePulse automatisiert den gesamten Vorgang auf **macOS, Linux und Windows**.
 
 ### Preise
 
@@ -29,7 +29,7 @@ Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, u
 | **Monats-Abo** | 5 EUR/Monat | Jederzeit kündbar |
 | **Lifetime** | 49 EUR einmalig | Einmal zahlen, für immer nutzen |
 
-Lizenz kaufen und Schlüssel erhalten: **[malt-license.example.com](https://malt-license.example.com)**
+Lizenz kaufen und Schlüssel erhalten: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
 
 ### So funktioniert's
 
@@ -53,7 +53,7 @@ npx playwright install chromium
 
 ### Lizenz aktivieren
 
-Nach dem Kauf einer Lizenz erhältst du einen Schlüssel im Format `MALT-XXXX-XXXX-XXXX-XXXX`.
+Nach dem Kauf einer Lizenz erhältst du einen Schlüssel im Format `PULSE-XXXX-XXXX-XXXX-XXXX`.
 
 ```bash
 npm run activate
@@ -110,9 +110,9 @@ Der Scheduler wird automatisch für dein Betriebssystem konfiguriert:
 
 | Plattform | Mechanismus | Konfiguration |
 |-----------|------------|---------------|
-| **macOS** | LaunchAgent | `~/Library/LaunchAgents/com.celox.malt-availability.plist` |
-| **Linux** | systemd User Timer | `~/.config/systemd/user/malt-availability.timer` |
-| **Windows** | Task Scheduler | Task `MaltAvailability` |
+| **macOS** | LaunchAgent | `~/Library/LaunchAgents/com.celox.profile-pulse.plist` |
+| **Linux** | systemd User Timer | `~/.config/systemd/user/profile-pulse.timer` |
+| **Windows** | Task Scheduler | Task `ProfilePulse` |
 
 Auf allen Plattformen:
 - **Start beim Login** — läuft sofort nach der Anmeldung
@@ -152,7 +152,7 @@ Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `
 
 Automated availability confirmation for [malt.de](https://www.malt.de) freelancer profiles.
 
-Malt requires freelancers to confirm their availability every 7 days to maintain the "availability confirmed" badge on their profile. Without confirmation, visibility in search results decreases. This tool automates the entire process on **macOS, Linux, and Windows**.
+Malt requires freelancers to confirm their availability every 7 days to maintain the "availability confirmed" badge on their profile. Without confirmation, visibility in search results decreases. ProfilePulse automates the entire process on **macOS, Linux, and Windows**.
 
 ### Pricing
 
@@ -161,7 +161,7 @@ Malt requires freelancers to confirm their availability every 7 days to maintain
 | **Monthly** | 5 EUR/month | Cancel anytime |
 | **Lifetime** | 49 EUR one-time | Pay once, use forever |
 
-Purchase a license and get your key: **[malt-license.example.com](https://malt-license.example.com)**
+Purchase a license and get your key: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
 
 ### How it works
 
@@ -185,7 +185,7 @@ npx playwright install chromium
 
 ### Activate license
 
-After purchasing a license, you'll receive a key in the format `MALT-XXXX-XXXX-XXXX-XXXX`.
+After purchasing a license, you'll receive a key in the format `PULSE-XXXX-XXXX-XXXX-XXXX`.
 
 ```bash
 npm run activate
@@ -242,9 +242,9 @@ The scheduler is automatically configured for your operating system:
 
 | Platform | Mechanism | Configuration |
 |----------|-----------|---------------|
-| **macOS** | LaunchAgent | `~/Library/LaunchAgents/com.celox.malt-availability.plist` |
-| **Linux** | systemd user timer | `~/.config/systemd/user/malt-availability.timer` |
-| **Windows** | Task Scheduler | Task `MaltAvailability` |
+| **macOS** | LaunchAgent | `~/Library/LaunchAgents/com.celox.profile-pulse.plist` |
+| **Linux** | systemd user timer | `~/.config/systemd/user/profile-pulse.timer` |
+| **Windows** | Task Scheduler | Task `ProfilePulse` |
 
 On all platforms:
 - **Start at login** — runs immediately when you log in
@@ -286,6 +286,6 @@ Martin Pfeffer - [celox.io](https://celox.io)
 
 Proprietary software. See [LICENSE](LICENSE) for details.
 
-Purchase at [malt-license.example.com](https://malt-license.example.com):
+Purchase at [profilepulse-license.example.com](https://profilepulse-license.example.com):
 - **5 EUR/Monat** (monthly subscription)
 - **49 EUR** (lifetime, one-time payment)

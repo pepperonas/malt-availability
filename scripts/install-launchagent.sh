@@ -1,11 +1,11 @@
 #!/bin/bash
-# Install macOS LaunchAgent for malt-availability
+# Install macOS LaunchAgent for profile-pulse
 # Starts at login/boot, runs daily at 10:00 AM, auto-restarts on failure.
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-PLIST_NAME="com.celox.malt-availability"
+PLIST_NAME="com.celox.profile-pulse"
 PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_NAME}.plist"
 NODE_PATH="$(which node)"
 LOG_DIR="${SCRIPT_DIR}/logs"

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * malt-availability - License Activation
+ * ProfilePulse - License Activation
  *
  * Prompts for a license key, validates it against the license server,
  * and saves it locally for future use.
@@ -87,7 +87,7 @@ async function validateKey(key) {
 
 async function activate() {
   console.log('');
-  console.log('=== malt-availability License Activation ===');
+  console.log('=== ProfilePulse License Activation ===');
   console.log('');
 
   // Check if already activated
@@ -117,8 +117,8 @@ async function activate() {
   }
 
   // Validate format
-  if (!/^MALT-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}$/.test(key)) {
-    console.error('Invalid key format. Expected: MALT-XXXX-XXXX-XXXX-XXXX');
+  if (!/^PULSE-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}$/.test(key)) {
+    console.error('Invalid key format. Expected: PULSE-XXXX-XXXX-XXXX-XXXX');
     process.exit(1);
   }
 

@@ -1,7 +1,7 @@
 {
-  "name": "malt-availability-license-server",
+  "name": "profile-pulse-license-server",
   "version": "1.0.0",
-  "description": "License server for malt-availability",
+  "description": "License server for ProfilePulse",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

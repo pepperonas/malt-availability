@@ -13,7 +13,7 @@ function timestamp() {
 function logFile() {
   ensureDir(LOGS_DIR);
   const date = new Date().toISOString().split('T')[0];
-  return path.join(LOGS_DIR, `malt-${date}.log`);
+  return path.join(LOGS_DIR, `pulse-${date}.log`);
 }
 
 function log(level, message) {

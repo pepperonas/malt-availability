@@ -1,7 +1,7 @@
 #!/bin/bash
-# Uninstall systemd user timer for malt-availability
+# Uninstall systemd user timer for profile-pulse
 
-SERVICE_NAME="malt-availability"
+SERVICE_NAME="profile-pulse"
 SERVICE_PATH="$HOME/.config/systemd/user/${SERVICE_NAME}.service"
 TIMER_PATH="$HOME/.config/systemd/user/${SERVICE_NAME}.timer"
 

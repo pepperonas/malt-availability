@@ -20,7 +20,7 @@ describe('scheduling scripts', () => {
         path.join(scriptsDir, 'install-launchagent.sh'),
         'utf-8'
       );
-      assert.ok(content.includes('com.celox.malt-availability'));
+      assert.ok(content.includes('com.celox.profile-pulse'));
       assert.ok(content.includes('RunAtLoad'));
       assert.ok(content.includes('StartCalendarInterval'));
     });
@@ -62,7 +62,7 @@ describe('scheduling scripts', () => {
         'utf-8'
       );
       assert.ok(content.includes('Register-ScheduledTask'));
-      assert.ok(content.includes('MaltAvailability'));
+      assert.ok(content.includes('ProfilePulse'));
       assert.ok(content.includes('-Daily'));
       assert.ok(content.includes('-AtLogon'));
     });

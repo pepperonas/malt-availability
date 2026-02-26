@@ -1,4 +1,4 @@
-# Marketing-Strategie: malt-availability
+# Marketing-Strategie: ProfilePulse
 
 > **Zielgruppe:** Freelancer auf malt.de, IT-Freiberufler, digitale Nomaden
 > **Produkt:** Automatisierungstool für tägliche Verfügbarkeitsbestätigung
@@ -12,7 +12,7 @@
 > "Malt.de verlangt alle 7 Tage eine Verfügbarkeitsbestätigung, sonst verlierst du dein Badge und deine Sichtbarkeit sinkt. Ich habe ein Open-Source-Tool gebaut, das das automatisch jeden Tag für dich erledigt — mit Playwright, Google SSO und macOS-Benachrichtigungen. 5 Minuten Setup, dann nie wieder daran denken."
 
 **Version B: Community-orientiert**
-> "Als Freelancer auf Malt nervt mich diese 7-Tage-Verfügbarkeitsbestätigung seit Jahren. Also habe ich malt-availability gebaut: Node.js + Playwright, täglich automatisch, MIT-lizenziert. Läuft seit Wochen bei mir, jetzt auf GitHub für alle verfügbar."
+> "Als Freelancer auf Malt nervt mich diese 7-Tage-Verfügbarkeitsbestätigung seit Jahren. Also habe ich ProfilePulse gebaut: Node.js + Playwright, täglich automatisch, MIT-lizenziert. Läuft seit Wochen bei mir, jetzt auf GitHub für alle verfügbar."
 
 **Version C: Problem-first**
 > "Wer auf Malt.de sein 'Verfügbarkeit bestätigt'-Badge verliert, wird in Suchergebnissen abgestraft. Das passiert nach 7 Tagen ohne Klick. Meine Lösung: Automatische tägliche Bestätigung via Browser-Automation. Open Source, keine Cloud, läuft lokal auf deinem Mac."
@@ -102,16 +102,16 @@
 
 **LinkedIn Headline:**
 ```
-Freelance Developer & Automation Engineer | Open-Source Tools für Freelancer | malt-availability Creator
+Freelance Developer & Automation Engineer | Open-Source Tools für Freelancer | ProfilePulse Creator
 ```
 
 **About-Sektion (Auszug):**
 ```
 Als Freelancer auf Malt.de habe ich die ständigen Verfügbarkeitsbestätigungen
-satt gehabt — also habe ich malt-availability gebaut: Ein Open-Source-Tool,
+satt gehabt — also habe ich ProfilePulse gebaut: Ein Open-Source-Tool,
 das diese lästige Aufgabe automatisiert.
 
-🔗 GitHub: github.com/[username]/malt-availability
+🔗 GitHub: github.com/[username]/ProfilePulse
 🛠️ Stack: Node.js, Playwright, macOS Automation
 
 Ich teile regelmäßig Einblicke in Freelancer-Automatisierung und Open-Source-Entwicklung.
@@ -139,7 +139,7 @@ Wer kennt das Problem? 👇
 
 #### Post-Template 2: Solution-Launch
 ```markdown
-🎉 Problem gelöst: malt-availability ist jetzt Open Source!
+🎉 Problem gelöst: ProfilePulse ist jetzt Open Source!
 
 Nach wochenlangem Testen läuft mein Automatisierungstool jetzt stabil:
 ✅ Bestätigt täglich automatisch meine Verfügbarkeit auf Malt.de
@@ -148,7 +148,7 @@ Nach wochenlangem Testen läuft mein Automatisierungstool jetzt stabil:
 ✅ Benachrichtigung bei Erfolg/Fehler
 ✅ 5 Minuten Setup, dann wartungsfrei
 
-🔗 GitHub: github.com/[username]/malt-availability
+🔗 GitHub: github.com/[username]/ProfilePulse
 📜 MIT-Lizenz (kostenlos, für immer)
 
 Stack: Node.js + Playwright + macOS LaunchAgent
@@ -160,7 +160,7 @@ Freelancer-Kollegen: Probiert es aus, gibt Feedback, contributed gerne!
 
 #### Post-Template 3: Social Proof
 ```markdown
-📊 Update nach 30 Tagen malt-availability:
+📊 Update nach 30 Tagen ProfilePulse:
 
 ✅ 30/30 erfolgreiche Bestätigungen
 ✅ 0 verpasste Tage
@@ -173,14 +173,14 @@ Mittlerweile nutzen [X] Freelancer das Tool (siehe GitHub Stars).
 
 Wer noch nicht automatisiert hat: Was hält euch ab?
 
-🔗 github.com/[username]/malt-availability
+🔗 github.com/[username]/ProfilePulse
 
 #freelancerlife #productivity #automation #maltde
 ```
 
 #### Post-Template 4: Tutorial-Teaser
 ```markdown
-🎥 Neues Tutorial: malt-availability in 5 Minuten einrichten
+🎥 Neues Tutorial: ProfilePulse in 5 Minuten einrichten
 
 Ich zeige Schritt für Schritt:
 1️⃣ npm install + Playwright-Setup
@@ -224,7 +224,7 @@ ein Open-Source-Tool released, das die 7-Tage-Verfügbarkeitsbestätigung
 automatisiert.
 
 Falls dich das nervt (mich hat es genervt 😅), schau gerne mal rein:
-👉 github.com/[username]/malt-availability
+👉 github.com/[username]/ProfilePulse
 
 5 Minuten Setup, dann läuft es von selbst. Komplett kostenlos & Open Source.
 
@@ -245,7 +245,7 @@ Die ständige Verfügbarkeitsbestätigung.
 Keine Sales-Pitch — das Tool ist Open Source und kostenlos. Ich suche
 gerade Early Adopters für Feedback.
 
-Interessiert? Dann schau mal hier: github.com/[username]/malt-availability
+Interessiert? Dann schau mal hier: github.com/[username]/ProfilePulse
 
 Cheers,
 [Dein Name]
@@ -255,7 +255,7 @@ Cheers,
 ```
 Hi [Name],
 
-danke für deinen Kommentar auf meinen Post zu malt-availability!
+danke für deinen Kommentar auf meinen Post zu ProfilePulse!
 
 Du hattest geschrieben, dass [Zitat aus Kommentar]. Ich habe dazu noch
 ein paar Gedanken — darf ich dir kurz eine Frage dazu stellen?
@@ -303,7 +303,7 @@ Beste Grüße,
 
 ### Freelancermap.de
 - **Strategie:** Profil-Bio mit Hinweis auf Open-Source-Arbeit
-- **Artikel:** "5 Tools, die jeder Freelancer kennen sollte" (malt-availability als eines davon)
+- **Artikel:** "5 Tools, die jeder Freelancer kennen sollte" (ProfilePulse als eines davon)
 - **Kommentare:** Aktiv in Foren/Diskussionen, Tool organisch erwähnen
 
 ### Reddit
@@ -328,7 +328,7 @@ Beste Grüße,
 
 ### YouTube (optional, zeitintensiv)
 - **Video 1:** "5-Minute Setup Tutorial"
-- **Video 2:** "How I built malt-availability (Code Walkthrough)"
+- **Video 2:** "How I built ProfilePulse (Code Walkthrough)"
 - **Video 3:** "Freelancer Automation: Is it worth it?"
 
 ---
@@ -376,7 +376,7 @@ Beste Grüße,
 ### Blog-Posts (auf eigener Website oder Medium/Dev.to)
 
 #### Serie 1: Technical Deep-Dive
-1. **"Building malt-availability: Playwright persistence explained"**
+1. **"Building ProfilePulse: Playwright persistence explained"**
    - Wie Playwright Browser-Contexts speichert
    - Warum non-headless besser gegen Cloudflare ist
    - Code-Snippets aus dem Projekt
@@ -393,7 +393,7 @@ Beste Grüße,
 
 #### Serie 2: Freelancer-Focused
 1. **"5 Admin-Tasks jeder Freelancer automatisieren sollte"**
-   - Verfügbarkeitsbestätigung (malt-availability)
+   - Verfügbarkeitsbestätigung (ProfilePulse)
    - Rechnungserstellung (Tools wie Lexoffice)
    - Social Media Posting (Buffer)
    - Backup & Zeiterfassung
@@ -414,7 +414,7 @@ Beste Grüße,
    - Externes Marketing
 
 #### Serie 3: Behind-the-Scenes
-1. **"From idea to launch: Building malt-availability in 2 weeks"**
+1. **"From idea to launch: Building ProfilePulse in 2 weeks"**
    - Problemstellung
    - Tech-Stack-Entscheidung
    - Herausforderungen (Cloudflare, Session-Persistence)
@@ -435,7 +435,7 @@ Beste Grüße,
 
 **Format:** Screen-Recording + Voice-Over (10-15 Min pro Video)
 
-1. **"malt-availability Setup-Tutorial (Deutsch)"**
+1. **"ProfilePulse Setup-Tutorial (Deutsch)"**
    - Installation
    - Login-Methoden
    - LaunchAgent-Setup
@@ -446,7 +446,7 @@ Beste Grüße,
    - Erklärt selectors, wait-strategies
    - Session-Persistence
 
-3. **"Q&A: Eure Fragen zu malt-availability"**
+3. **"Q&A: Eure Fragen zu ProfilePulse"**
    - Community-Fragen sammeln (LinkedIn, GitHub Issues)
    - Video als Antwort
 
@@ -497,8 +497,8 @@ Beste Grüße,
 Nie wieder Verfügbarkeit manuell bestätigen:
 
 ```bash
-git clone https://github.com/[username]/malt-availability.git
-cd malt-availability
+git clone https://github.com/[username]/ProfilePulse.git
+cd ProfilePulse
 npm install
 npm run setup
 npm run install-schedule
@@ -511,7 +511,7 @@ npm run install-schedule
 
 ### Für LinkedIn Posts
 ```
-👉 Probier es aus: github.com/[username]/malt-availability
+👉 Probier es aus: github.com/[username]/ProfilePulse
 ⭐ Wenn's hilft, lass einen GitHub-Star da!
 💬 Fragen? Kommentiere oder schreib mir direkt.
 ```
@@ -520,11 +520,11 @@ npm run install-schedule
 ```
 ## Fazit
 
-malt-availability spart dir 5 Minuten alle 7 Tage — das sind 6 Stunden pro Jahr.
+ProfilePulse spart dir 5 Minuten alle 7 Tage — das sind 6 Stunden pro Jahr.
 Als Freelancer ist deine Zeit Geld. Automatisiere, was automatisiert werden kann.
 
 **Nächste Schritte:**
-1. [GitHub-Repo anschauen](https://github.com/[username]/malt-availability)
+1. [GitHub-Repo anschauen](https://github.com/[username]/ProfilePulse)
 2. Setup in 5 Minuten durchführen
 3. Feedback geben (Issues, Stars, Shares)
 4. In deinem Netzwerk teilen — andere Freelancer werden dir danken
@@ -538,7 +538,7 @@ Folge mir für mehr Freelancer-Automatisierungs-Tipps:
 ### Für YouTube Videos
 **On-Screen Text (Ende des Videos):**
 ```
-📥 Download: github.com/[username]/malt-availability
+📥 Download: github.com/[username]/ProfilePulse
 📖 Anleitung: [Link zur Doku]
 ⭐ GitHub-Star wenn's hilft!
 💬 Fragen? Ab in die Comments!
@@ -559,7 +559,7 @@ eurer Freelancer-Automatisierung!"
 ```
 Hi [Name],
 
-hast du malt-availability schon ausprobiert? Falls du Fragen beim Setup hast,
+hast du ProfilePulse schon ausprobiert? Falls du Fragen beim Setup hast,
 melde dich gerne — ich helfe gerne aus!
 
 Falls es schon läuft: Wie ist deine Erfahrung? Freue mich über Feedback.
@@ -659,7 +659,7 @@ freuen ⭐ — hilft bei der Sichtbarkeit!
 - [ ] 10 Launch-Posts auf LinkedIn (1-2 pro Woche)
 - [ ] 5 Xing-Posts
 - [ ] 3 Reddit-Posts (r/freelance, r/nodejs, r/automation)
-- [ ] Dev.to-Artikel (Teil 1: "Building malt-availability")
+- [ ] Dev.to-Artikel (Teil 1: "Building ProfilePulse")
 
 ### Phase 2: Community-Building (Monat 3-4)
 - [ ] Erste 100 GitHub-Stars erreichen
@@ -698,14 +698,14 @@ Ich arbeite gerade an [Feature/Fix], sollte in Version X.Y.Z kommen (ETA: [Datum
 
 Bis dahin: Wenn du weitere Probleme hast, ping mich gerne hier oder auf LinkedIn.
 
-Danke, dass du malt-availability nutzt!
+Danke, dass du ProfilePulse nutzt!
 ```
 
 ### Contributor-Willkommen-Template
 ```markdown
 🎉 Willkommen @[username]!
 
-Super, dass du zu malt-availability beitragen möchtest!
+Super, dass du zu ProfilePulse beitragen möchtest!
 
 **Nächste Schritte:**
 1. Check out unsere [CONTRIBUTING.md](Link)
@@ -721,7 +721,7 @@ Looking forward to your contributions! 🚀
 ```
 Hi [Name],
 
-ich habe gesehen, dass du malt-availability seit [X Wochen] nutzt (danke für den GitHub-Star! ⭐).
+ich habe gesehen, dass du ProfilePulse seit [X Wochen] nutzt (danke für den GitHub-Star! ⭐).
 
 Kleine Bitte: Falls das Tool dir hilft, würde ich mich über ein kurzes Testimonial freuen — 2-3 Sätze reichen:
 - Was hat sich für dich verbessert?

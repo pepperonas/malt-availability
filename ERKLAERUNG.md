@@ -1,4 +1,4 @@
-# Malt Availability — Einfach erklärt
+# ProfilePulse — Einfach erklärt
 
 ## Was ist Malt?
 

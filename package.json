@@ -1,5 +1,5 @@
 {
-  "name": "malt-availability",
+  "name": "profile-pulse",
   "version": "1.0.0",
   "description": "Automated availability confirmation for malt.de freelancer profiles",
   "main": "src/confirm-availability.js",

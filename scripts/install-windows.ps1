@@ -1,4 +1,4 @@
-# Install Windows Task Scheduler job for malt-availability
+# Install Windows Task Scheduler job for profile-pulse
 # Runs daily at 10:00 AM and on logon.
 
 $ErrorActionPreference = "Stop"
@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 $scriptDir = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $nodePath = (Get-Command node -ErrorAction Stop).Source
 $logDir = Join-Path $scriptDir "logs"
-$taskName = "MaltAvailability"
+$taskName = "ProfilePulse"
 
 if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
 
@@ -36,7 +36,7 @@ Register-ScheduledTask `
     -Action $action `
     -Trigger @($triggerDaily, $triggerLogon) `
     -Settings $settings `
-    -Description "Automated availability confirmation for malt.de freelancer profiles" `
+    -Description "Automated availability confirmation for malt.de freelancer profiles (ProfilePulse)" `
     -RunLevel Limited
 
 Write-Host ""

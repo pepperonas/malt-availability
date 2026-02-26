@@ -15,12 +15,12 @@ function checkScheduler() {
   if (platform === 'darwin') {
     const plistPath = path.join(
       process.env.HOME,
-      'Library/LaunchAgents/com.celox.malt-availability.plist'
+      'Library/LaunchAgents/com.celox.profile-pulse.plist'
     );
     if (!fs.existsSync(plistPath)) return 'not installed (macOS LaunchAgent)';
     try {
       const output = execFileSync('launchctl', ['list'], { encoding: 'utf-8' });
-      if (output.includes('com.celox.malt-availability')) return 'active (macOS LaunchAgent)';
+      if (output.includes('com.celox.profile-pulse')) return 'active (macOS LaunchAgent)';
       return 'installed but not loaded (macOS LaunchAgent)';
     } catch {
       return 'installed (status unknown)';
@@ -30,13 +30,13 @@ function checkScheduler() {
   if (platform === 'linux') {
     const timerPath = path.join(
       process.env.HOME,
-      '.config/systemd/user/malt-availability.timer'
+      '.config/systemd/user/profile-pulse.timer'
     );
     if (!fs.existsSync(timerPath)) return 'not installed (systemd timer)';
     try {
       const output = execFileSync(
         'systemctl',
-        ['--user', 'is-active', 'malt-availability.timer'],
+        ['--user', 'is-active', 'profile-pulse.timer'],
         { encoding: 'utf-8' }
       ).trim();
       return output === 'active'
@@ -51,7 +51,7 @@ function checkScheduler() {
     try {
       const output = execFileSync(
         'schtasks',
-        ['/Query', '/TN', 'MaltAvailability', '/FO', 'LIST'],
+        ['/Query', '/TN', 'ProfilePulse', '/FO', 'LIST'],
         { encoding: 'utf-8' }
       );
       if (output.includes('Ready') || output.includes('Running')) return 'active (Task Scheduler)';
@@ -105,7 +105,7 @@ function getLastSuccess() {
   }
 }
 
-console.log('\n  Malt Availability - Status');
+console.log('\n  ProfilePulse - Status');
 console.log('  -------------------------');
 console.log(`  Platform:      ${process.platform}`);
 console.log(`  Session:       ${hasSession() ? 'saved' : 'not found (run: npm run setup)'}`);

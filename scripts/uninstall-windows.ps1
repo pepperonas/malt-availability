@@ -1,6 +1,6 @@
-# Uninstall Windows Task Scheduler job for malt-availability
+# Uninstall Windows Task Scheduler job for profile-pulse
 
-$taskName = "MaltAvailability"
+$taskName = "ProfilePulse"
 
 $task = Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
 if (-not $task) {

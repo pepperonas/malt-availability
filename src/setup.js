@@ -13,7 +13,7 @@ const log = require('./logger');
 const { ensureDir } = require('./utils');
 
 async function setup() {
-  log.info('=== Malt availability setup started ===');
+  log.info('=== ProfilePulse setup started ===');
   log.info('A browser window will open. Please log in to malt.de via Google SSO.');
   log.info('After logging in, the browser will close automatically when it detects the dashboard.');
 

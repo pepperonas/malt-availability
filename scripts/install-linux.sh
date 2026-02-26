@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install systemd user timer for malt-availability
+# Install systemd user timer for profile-pulse
 # Runs daily at 10:00 AM and on login.
 
 set -e
@@ -7,7 +7,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 NODE_PATH="$(which node)"
 LOG_DIR="${SCRIPT_DIR}/logs"
-SERVICE_NAME="malt-availability"
+SERVICE_NAME="profile-pulse"
 
 mkdir -p "$LOG_DIR"
 mkdir -p "$HOME/.config/systemd/user"

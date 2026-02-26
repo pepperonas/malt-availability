@@ -72,7 +72,7 @@ function promptPassword(question) {
 }
 
 async function setupLogin() {
-  console.log('\n  Malt Availability - Login Setup');
+  console.log('\n  ProfilePulse - Login Setup');
   console.log('  ================================\n');
   console.log('  This will log you in to malt.de and save the session');
   console.log('  for automated availability confirmation.\n');
@@ -90,7 +90,7 @@ async function setupLogin() {
   }
 
   console.log('\n  Logging in...\n');
-  log.info('=== Malt availability login setup started ===');
+  log.info('=== ProfilePulse login setup started ===');
 
   ensureDir(config.BROWSER_DATA_DIR);
 

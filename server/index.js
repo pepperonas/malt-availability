@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * malt-availability License Server
+ * ProfilePulse License Server
  *
  * Handles Stripe checkout sessions, webhooks, and license validation.
  * Deploy this on a VPS and configure Stripe webhook to point here.
@@ -50,12 +50,12 @@ function saveLicenses(licenses) {
 }
 
 function generateLicenseKey() {
-  // Format: MALT-XXXX-XXXX-XXXX-XXXX
+  // Format: PULSE-XXXX-XXXX-XXXX-XXXX
   const segments = [];
   for (let i = 0; i < 4; i++) {
     segments.push(crypto.randomBytes(2).toString('hex').toUpperCase());
   }
-  return `MALT-${segments.join('-')}`;
+  return `PULSE-${segments.join('-')}`;
 }
 
 // --- Stripe webhook needs raw body ---
@@ -226,7 +226,7 @@ app.get('/', (req, res) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>malt-availability - Lizenz kaufen</title>
+      <title>ProfilePulse - Lizenz kaufen</title>
       <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
@@ -252,7 +252,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
       <div class="container">
-        <h1>malt-availability</h1>
+        <h1>ProfilePulse</h1>
         <p class="subtitle">Automatische Verfuegbarkeitsbestaetigung fuer Malt.de Freelancer</p>
         <div class="plans">
           <div class="plan">

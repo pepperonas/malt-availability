@@ -1,7 +1,7 @@
 #!/bin/bash
-# Uninstall macOS LaunchAgent for malt-availability
+# Uninstall macOS LaunchAgent for profile-pulse
 
-PLIST_NAME="com.celox.malt-availability"
+PLIST_NAME="com.celox.profile-pulse"
 PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_NAME}.plist"
 
 if [ ! -f "$PLIST_PATH" ]; then

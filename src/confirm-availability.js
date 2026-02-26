@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * malt-availability - Automated availability confirmation for malt.de
+ * ProfilePulse - Automated availability confirmation for malt.de
  *
  * Uses a persistent Playwright browser context to maintain the login session.
  * Run `npm run setup` first to log in via Google SSO.
@@ -28,7 +28,7 @@ function checkStaleness() {
     const daysSince = (Date.now() - lastSuccess) / (24 * 60 * 60 * 1000);
     if (daysSince >= config.STALENESS_WARNING_DAYS) {
       log.warn(`Last successful confirmation was ${Math.floor(daysSince)} days ago!`);
-      notify('Malt Availability', `Warning: Last confirmation was ${Math.floor(daysSince)} days ago. Badge may expire soon!`);
+      notify('ProfilePulse', `Warning: Last confirmation was ${Math.floor(daysSince)} days ago. Badge may expire soon!`);
     }
   } catch {
     // corrupted file, ignore
@@ -57,7 +57,7 @@ function notify(title, message) {
           `$textNodes.Item(0).AppendChild($template.CreateTextNode('${safeTitle}')) | Out-Null; ` +
           `$textNodes.Item(1).AppendChild($template.CreateTextNode('${safeMessage}')) | Out-Null; ` +
           `$toast = [Windows.UI.Notifications.ToastNotification]::new($template); ` +
-          `[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('malt-availability').Show($toast)`,
+          `[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('profile-pulse').Show($toast)`,
       ]);
     }
   } catch {
@@ -257,7 +257,7 @@ async function attemptConfirmation() {
       log.error('Session expired. Run "npm run setup" to log in again.');
       await takeScreenshot(page, 'session-expired');
       notify(
-        'Malt Availability',
+        'ProfilePulse',
         'Session expired! Run: npm run setup'
       );
       return { success: false, fatal: true };
@@ -309,7 +309,7 @@ async function attemptConfirmation() {
 }
 
 async function run() {
-  log.info('=== Malt availability confirmation started ===');
+  log.info('=== ProfilePulse availability confirmation started ===');
 
   // Cleanup old screenshots
   cleanupScreenshots(config.SCREENSHOTS_DIR);
@@ -324,7 +324,7 @@ async function run() {
     log.error(`License check failed: ${licenseStatus.error}`);
     log.error('Purchase a license at: ' + config.LICENSE_SERVER_URL);
     log.error('Then run: npm run activate');
-    notify('Malt Availability', 'No valid license. Run: npm run activate');
+    notify('ProfilePulse', 'No valid license. Run: npm run activate');
     process.exit(1);
   }
   if (licenseStatus.offline) {
@@ -343,7 +343,7 @@ async function run() {
       'No browser session found. Run "npm run setup" first to log in.'
     );
     notify(
-      'Malt Availability',
+      'ProfilePulse',
       'No session found. Run npm run setup to log in.'
     );
     process.exit(1);
@@ -361,8 +361,8 @@ async function run() {
 
     if (result.success) {
       saveSuccess();
-      notify('Malt Availability', 'Verfuegbarkeit erfolgreich bestaetigt!');
-      log.info('=== Malt availability confirmation finished ===');
+      notify('ProfilePulse', 'Verfuegbarkeit erfolgreich bestaetigt!');
+      log.info('=== ProfilePulse availability confirmation finished ===');
       return;
     }
 
@@ -376,7 +376,7 @@ async function run() {
 
   // All retries exhausted
   log.error(`All ${MAX_RETRIES} attempts failed.`);
-  notify('Malt Availability', `Confirmation failed after ${MAX_RETRIES} attempts. Check logs.`);
+  notify('ProfilePulse', `Confirmation failed after ${MAX_RETRIES} attempts. Check logs.`);
   process.exit(1);
 }
 
