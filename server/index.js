@@ -265,7 +265,7 @@ app.get('/', (req, res) => {
         .price span { font-size: 0.9rem; color: #888; font-weight: normal; }
         .features { list-style: none; margin: 1.5rem 0; }
         .features li { padding: 0.4rem 0; color: #ccc; }
-        .features li::before { content: "\\2713 "; color: #22c55e; font-weight: bold; }
+        .features li::before { content: "\\2713"; color: #22c55e; font-weight: bold; margin-right: 0.5rem; }
         .btn { display: block; width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: background 0.2s; }
         .btn-primary { background: #2563eb; color: #fff; }
         .btn-primary:hover { background: #1d4ed8; }
