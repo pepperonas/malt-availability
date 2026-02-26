@@ -322,8 +322,19 @@ app.get('/', (req, res) => {
       </div>
 
       <div class="plans-section">
-        <h2>Lizenz wählen</h2>
+        <h2>Kostenlos testen &mdash; dann entscheiden</h2>
         <div class="plans">
+          <div class="plan">
+            <h3>Kostenlose Testphase</h3>
+            <div class="price">0 EUR</div>
+            <ul class="features">
+              <li>2 Bestätigungen gratis</li>
+              <li>Voller Funktionsumfang</li>
+              <li>Keine Kreditkarte nötig</li>
+              <li>Einfach installieren und loslegen</li>
+            </ul>
+            <a class="btn btn-primary" href="https://github.com/pepperonas/profile-pulse" target="_blank">Jetzt testen</a>
+          </div>
           <div class="plan">
             <h3>Monats-Abo</h3>
             <div class="price">5 EUR<span>/Monat</span></div>
@@ -351,18 +362,20 @@ app.get('/', (req, res) => {
 
       <div class="setup">
         <h2>Einrichtung in 2 Minuten</h2>
-        <p>Nach dem Kauf erhältst du einen Lizenzschlüssel (Format: <strong>PULSE-XXXX-XXXX-XXXX-XXXX</strong>). Dann:</p>
+        <p>Keine Kreditkarte nötig &mdash; die ersten 2 Bestätigungen sind kostenlos.</p>
         <div class="code-block">
           <span class="comment"># 1. Repository klonen und installieren</span><br>
           git clone https://github.com/pepperonas/profile-pulse.git<br>
           cd profile-pulse<br>
           npm install && npx playwright install chromium<br><br>
-          <span class="comment"># 2. Lizenz aktivieren</span><br>
-          npm run activate<br><br>
-          <span class="comment"># 3. Bei Malt anmelden (Option A oder B)</span><br>
+          <span class="comment"># 2. Bei Malt anmelden (Option A oder B)</span><br>
           npm run setup &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Google SSO (Browser-Fenster)</span><br>
           npm run setup:login &nbsp;&nbsp;<span class="comment"># E-Mail/Passwort (Terminal)</span><br><br>
-          <span class="comment"># 4. Täglich automatisch laufen lassen</span><br>
+          <span class="comment"># 3. Kostenlos testen (2x ohne Lizenz)</span><br>
+          npm run confirm<br><br>
+          <span class="comment"># 4. Lizenz aktivieren (nach der Testphase)</span><br>
+          npm run activate<br><br>
+          <span class="comment"># 5. Täglich automatisch laufen lassen</span><br>
           npm run install-schedule
         </div>
 
