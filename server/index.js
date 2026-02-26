@@ -231,37 +231,93 @@ app.get('/', (req, res) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ProfilePulse - Lizenz kaufen</title>
+      <title>ProfilePulse - Automatische Verfuegbarkeit fuer Malt.de</title>
       <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .container { max-width: 800px; padding: 3rem; text-align: center; }
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #fff; }
-        .subtitle { color: #888; font-size: 1.1rem; margin-bottom: 3rem; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; min-height: 100vh; }
+        .hero { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 2rem; text-align: center; }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; color: #fff; }
+        .tagline { color: #22c55e; font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .subtitle { color: #888; font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.6; max-width: 650px; margin-left: auto; margin-right: auto; }
+
+        .problem { max-width: 700px; margin: 0 auto 3rem; padding: 0 2rem; }
+        .problem h2 { color: #fff; font-size: 1.4rem; margin-bottom: 1rem; text-align: center; }
+        .problem p { color: #aaa; line-height: 1.7; margin-bottom: 0.8rem; }
+        .problem strong { color: #e5e5e5; }
+
+        .how-it-works { max-width: 700px; margin: 0 auto 3rem; padding: 0 2rem; }
+        .how-it-works h2 { color: #fff; font-size: 1.4rem; margin-bottom: 1.2rem; text-align: center; }
+        .steps { list-style: none; }
+        .steps li { color: #ccc; padding: 0.6rem 0; padding-left: 2rem; position: relative; line-height: 1.5; }
+        .steps li::before { position: absolute; left: 0; color: #22c55e; font-weight: bold; }
+        .steps li:nth-child(1)::before { content: "1."; }
+        .steps li:nth-child(2)::before { content: "2."; }
+        .steps li:nth-child(3)::before { content: "3."; }
+        .steps li:nth-child(4)::before { content: "4."; }
+        .steps li:nth-child(5)::before { content: "5."; }
+
+        .plans-section { max-width: 900px; margin: 0 auto; padding: 0 2rem 2rem; text-align: center; }
+        .plans-section h2 { color: #fff; font-size: 1.4rem; margin-bottom: 1.5rem; }
         .plans { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
         .plan { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 2rem; width: 320px; text-align: left; }
-        .plan h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .plan h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
         .price { font-size: 2rem; font-weight: bold; color: #fff; margin: 1rem 0; }
         .price span { font-size: 0.9rem; color: #888; font-weight: normal; }
         .features { list-style: none; margin: 1.5rem 0; }
         .features li { padding: 0.4rem 0; color: #ccc; }
         .features li::before { content: "\\2713 "; color: #22c55e; font-weight: bold; }
-        .btn { display: block; width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; }
+        .btn { display: block; width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: background 0.2s; }
         .btn-primary { background: #2563eb; color: #fff; }
         .btn-primary:hover { background: #1d4ed8; }
         .btn-secondary { background: #22c55e; color: #fff; }
         .btn-secondary:hover { background: #16a34a; }
         .popular { border-color: #22c55e; position: relative; }
         .popular::before { content: "Beliebt"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #22c55e; color: #000; padding: 2px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+
+        .setup { max-width: 700px; margin: 3rem auto; padding: 0 2rem; }
+        .setup h2 { color: #fff; font-size: 1.4rem; margin-bottom: 1.2rem; text-align: center; }
+        .code-block { background: #111; border: 1px solid #333; border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1rem 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9rem; color: #ccc; overflow-x: auto; line-height: 1.7; }
+        .code-block .comment { color: #666; }
+        .setup p { color: #aaa; line-height: 1.6; margin-bottom: 0.8rem; }
+
+        .footer { max-width: 700px; margin: 3rem auto 0; padding: 2rem; text-align: center; border-top: 1px solid #222; }
+        .footer p { color: #555; font-size: 0.85rem; margin-bottom: 0.3rem; }
+        .footer a { color: #2563eb; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
       </style>
     </head>
     <body>
-      <div class="container">
+      <div class="hero">
         <h1>ProfilePulse</h1>
-        <p class="subtitle">Automatische Verfuegbarkeitsbestaetigung fuer Malt.de Freelancer</p>
+        <p class="tagline">Nie wieder Verfuegbarkeit manuell bestaetigen.</p>
+        <p class="subtitle">
+          ProfilePulse haelt dein Malt.de-Profil automatisch sichtbar &mdash;
+          jeden Tag, ohne dass du einen Finger ruehren musst.
+        </p>
+      </div>
+
+      <div class="problem">
+        <h2>Das Problem</h2>
+        <p>Malt.de verlangt von Freelancern, ihre Verfuegbarkeit <strong>alle 7 Tage</strong> manuell zu bestaetigen. Vergisst du es, verschwindet das gruene Badge, dein Profil rutscht in den Suchergebnissen ab &mdash; und potenzielle Kunden finden dich nicht mehr.</p>
+        <p>Das kann schnell <strong>tausende Euro an entgangenen Auftraegen</strong> bedeuten.</p>
+      </div>
+
+      <div class="how-it-works">
+        <h2>So funktioniert ProfilePulse</h2>
+        <ul class="steps">
+          <li>Laeuft automatisch im Hintergrund auf deinem Rechner (macOS, Linux, Windows)</li>
+          <li>Oeffnet unsichtbar einen Browser und navigiert zu deinem Malt-Dashboard</li>
+          <li>Klickt &bdquo;Ja, ich bin verfuegbar&ldquo; und &bdquo;Bestaetigen&ldquo;</li>
+          <li>Benachrichtigt dich bei Erfolg oder falls etwas schiefgeht</li>
+          <li>Wiederholt sich taeglich &mdash; dein Badge bleibt immer gruen</li>
+        </ul>
+      </div>
+
+      <div class="plans-section">
+        <h2>Lizenz waehlen</h2>
         <div class="plans">
           <div class="plan">
-            <h2>Monats-Abo</h2>
+            <h3>Monats-Abo</h3>
             <div class="price">5 EUR<span>/Monat</span></div>
             <ul class="features">
               <li>Taegliche automatische Bestaetigung</li>
@@ -272,7 +328,7 @@ app.get('/', (req, res) => {
             <a class="btn btn-primary" href="/checkout/monthly">Abo starten</a>
           </div>
           <div class="plan popular">
-            <h2>Lifetime</h2>
+            <h3>Lifetime</h3>
             <div class="price">49 EUR<span> einmalig</span></div>
             <ul class="features">
               <li>Taegliche automatische Bestaetigung</li>
@@ -283,6 +339,29 @@ app.get('/', (req, res) => {
             <a class="btn btn-secondary" href="/checkout/lifetime">Jetzt kaufen</a>
           </div>
         </div>
+      </div>
+
+      <div class="setup">
+        <h2>Einrichtung in 2 Minuten</h2>
+        <p>Nach dem Kauf erhaeltst du einen Lizenzschluessel (Format: <strong>PULSE-XXXX-XXXX-XXXX-XXXX</strong>). Dann:</p>
+        <div class="code-block">
+          <span class="comment"># 1. Repository klonen und installieren</span><br>
+          git clone https://github.com/pepperonas/profile-pulse.git<br>
+          cd profile-pulse<br>
+          npm install && npx playwright install chromium<br><br>
+          <span class="comment"># 2. Lizenz aktivieren</span><br>
+          npm run activate<br><br>
+          <span class="comment"># 3. Bei Malt anmelden</span><br>
+          npm run setup<br><br>
+          <span class="comment"># 4. Taeglich automatisch laufen lassen</span><br>
+          npm run install-schedule
+        </div>
+        <p>Das war's. ProfilePulse laeuft ab jetzt jeden Tag automatisch im Hintergrund.</p>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2026 Martin Pfeffer &mdash; <a href="https://celox.io">celox.io</a></p>
+        <p><a href="https://github.com/pepperonas/profile-pulse">GitHub</a></p>
       </div>
     </body>
     </html>
