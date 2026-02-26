@@ -280,6 +280,14 @@ app.get('/', (req, res) => {
         .code-block .comment { color: #666; }
         .setup p { color: #aaa; line-height: 1.6; margin-bottom: 0.8rem; }
 
+        .login-info { margin-top: 2rem; }
+        .login-info h3 { color: #fff; font-size: 1.15rem; margin-bottom: 1rem; }
+        .login-options { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .login-option { flex: 1; min-width: 250px; background: #111; border: 1px solid #333; border-radius: 8px; padding: 1rem 1.2rem; color: #ccc; line-height: 1.6; font-size: 0.95rem; }
+        .login-option strong { color: #fff; }
+        .login-option code { background: #222; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; color: #22c55e; }
+        .login-note { color: #888; font-size: 0.9rem; margin-top: 0.8rem; }
+
         .footer { max-width: 700px; margin: 3rem auto 0; padding: 2rem; text-align: center; border-top: 1px solid #222; }
         .footer p { color: #555; font-size: 0.85rem; margin-bottom: 0.3rem; }
         .footer a { color: #2563eb; text-decoration: none; }
@@ -351,11 +359,28 @@ app.get('/', (req, res) => {
           npm install && npx playwright install chromium<br><br>
           <span class="comment"># 2. Lizenz aktivieren</span><br>
           npm run activate<br><br>
-          <span class="comment"># 3. Bei Malt anmelden</span><br>
-          npm run setup<br><br>
+          <span class="comment"># 3. Bei Malt anmelden (Option A oder B)</span><br>
+          npm run setup &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Google SSO (Browser-Fenster)</span><br>
+          npm run setup:login &nbsp;&nbsp;<span class="comment"># E-Mail/Passwort (Terminal)</span><br><br>
           <span class="comment"># 4. Taeglich automatisch laufen lassen</span><br>
           npm run install-schedule
         </div>
+
+        <div class="login-info">
+          <h3>Zwei Login-Wege</h3>
+          <div class="login-options">
+            <div class="login-option">
+              <strong>Google SSO</strong> (<code>npm run setup</code>)<br>
+              Oeffnet ein Browser-Fenster, in dem du dich mit deinem Google-Konto bei Malt anmeldest. Ideal, wenn du dich bei Malt ueber Google registriert hast.
+            </div>
+            <div class="login-option">
+              <strong>E-Mail / Passwort</strong> (<code>npm run setup:login</code>)<br>
+              Login direkt im Terminal &mdash; du gibst E-Mail und Passwort ein, ohne dass ein Browser-Fenster erscheint. Ideal fuer Server oder Headless-Setups.
+            </div>
+          </div>
+          <p class="login-note">Beide Methoden speichern die Session dauerhaft. Du musst dich nur einmal anmelden.</p>
+        </div>
+
         <p>Das war's. ProfilePulse laeuft ab jetzt jeden Tag automatisch im Hintergrund.</p>
       </div>
 
