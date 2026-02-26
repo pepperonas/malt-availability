@@ -6,9 +6,12 @@
 [![macOS](https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white)](https://www.apple.com/macos/)
 [![Linux](https://img.shields.io/badge/Linux-supported-FCC624?logo=linux&logoColor=black)](https://www.linux.org/)
 [![Windows](https://img.shields.io/badge/Windows-supported-0078D6?logo=windows&logoColor=white)](https://www.microsoft.com/windows)
-[![Malt](https://img.shields.io/badge/Malt.de-Freelancer-FC5757)](https://www.malt.de/)
 [![Tests](https://img.shields.io/badge/Tests-29%20passed-brightgreen)](test/)
 [![Stripe](https://img.shields.io/badge/Payments-Stripe-635BFF?logo=stripe&logoColor=white)](https://stripe.com/)
+
+**Keep your freelancer profile visible — automatically.**
+
+ProfilePulse automates the recurring availability confirmation on [malt.de](https://www.malt.de), so you never lose your "availability confirmed" badge again.
 
 > **[Deutsch](#deutsch)** | **[English](#english)**
 
@@ -18,76 +21,48 @@
 
 ## :de: Deutsch
 
-Automatische Verfügbarkeitsbestätigung für [malt.de](https://www.malt.de) Freelancer-Profile.
+### Das Problem
 
-Malt verlangt von Freelancern, ihre Verfügbarkeit alle 7 Tage zu bestätigen, um das Badge "Verfügbarkeit bestätigt" auf dem Profil zu behalten. Ohne Bestätigung sinkt die Sichtbarkeit in den Suchergebnissen. ProfilePulse automatisiert den gesamten Vorgang auf **macOS, Linux und Windows**.
+Malt verlangt von Freelancern, ihre Verfuegbarkeit **alle 7 Tage** manuell zu bestaetigen. Vergisst man es, verschwindet das gruene Badge, die Sichtbarkeit in Suchergebnissen sinkt — und potenzielle Kunden finden dich nicht mehr.
+
+### Die Loesung
+
+ProfilePulse erledigt das automatisch. Einmal einrichten, nie wieder daran denken. Laeuft auf **macOS, Linux und Windows**.
 
 ### Preise
 
 | Plan | Preis | Details |
 |------|-------|---------|
-| **Monats-Abo** | 5 EUR/Monat | Jederzeit kündbar |
-| **Lifetime** | 49 EUR einmalig | Einmal zahlen, für immer nutzen |
+| **Monats-Abo** | 5 EUR/Monat | Jederzeit kuendbar |
+| **Lifetime** | 49 EUR einmalig | Einmal zahlen, fuer immer nutzen |
 
-Lizenz kaufen und Schlüssel erhalten: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
+Lizenz kaufen: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
 
 ### So funktioniert's
 
-1. Nutzt [Playwright](https://playwright.dev/) mit einem **persistenten Browser-Kontext**, um die Login-Session dauerhaft zu speichern
-2. Navigiert zum Malt Freelancer-Dashboard
-3. Öffnet den Verfügbarkeits-Dialog und klickt "Ja" + "Bestätigen"
+1. Nutzt [Playwright](https://playwright.dev/) mit einem **persistenten Browser-Kontext** fuer dauerhafte Login-Sessions
+2. Navigiert zum Freelancer-Dashboard
+3. Oeffnet den Verfuegbarkeits-Dialog und klickt "Ja" + "Bestaetigen"
 4. **Automatische Wiederholung** bei Fehlern (bis zu 3 Versuche mit steigenden Wartezeiten)
-5. Sendet Desktop-Benachrichtigungen bei Erfolg oder Fehler (macOS, Linux, Windows)
-6. **Verfolgt den letzten Erfolg** und warnt, wenn die Bestätigung seit >5 Tagen aussteht
-7. Läuft automatisch per Scheduler — startet beim Login und wiederholt sich täglich um 10:00 Uhr
+5. Sendet **Desktop-Benachrichtigungen** bei Erfolg oder Fehler
+6. **Verfolgt den letzten Erfolg** und warnt bei >5 Tagen ohne Bestaetigung
+7. Laeuft automatisch per Scheduler — taeglich um 10:00 Uhr + beim Login
 
-### Installation
-
-```bash
-# Abhängigkeiten installieren
-npm install
-
-# Playwright-Browser installieren (nur Chromium)
-npx playwright install chromium
-```
-
-### Lizenz aktivieren
-
-Nach dem Kauf einer Lizenz erhältst du einen Schlüssel im Format `PULSE-XXXX-XXXX-XXXX-XXXX`.
+### Schnellstart
 
 ```bash
+# 1. Abhaengigkeiten installieren
+npm install && npx playwright install chromium
+
+# 2. Lizenz aktivieren (Format: PULSE-XXXX-XXXX-XXXX-XXXX)
 npm run activate
-```
 
-Gibt den Lizenzschlüssel ein, wenn du dazu aufgefordert wirst. Der Schlüssel wird lokal in `license.json` gespeichert (gitignored).
+# 3. Bei Malt anmelden (waehle eine Option)
+npm run setup          # Google SSO (Browser-Fenster)
+npm run setup:login    # E-Mail/Passwort (Terminal)
 
-### Anmeldung
-
-Es gibt zwei Wege, sich bei Malt anzumelden. Die Session wird nach dem Login lokal gespeichert und für alle weiteren automatischen Läufe wiederverwendet.
-
-#### Option A: Google SSO (Browser-Fenster)
-
-```bash
-npm run setup
-```
-
-Öffnet ein Chromium-Fenster mit der Malt-Anmeldeseite. Du klickst auf "Mit Google anmelden" und durchläufst den Google-Login. Sobald das Dashboard geladen ist, wird die Session gespeichert und das Fenster schließt sich automatisch.
-
-#### Option B: E-Mail und Passwort (Terminal)
-
-```bash
-npm run setup:login
-```
-
-Fragt E-Mail und Passwort direkt im Terminal ab. Das Passwort wird bei der Eingabe mit `*` maskiert. Die Anmeldedaten werden **nicht** gespeichert — nur die Browser-Session wird lokal abgelegt.
-
-### Automatisierung starten
-
-```bash
-# Einmalig testen, ob die Bestätigung funktioniert
+# 4. Testen & Scheduler installieren
 npm run confirm
-
-# Täglichen Scheduler installieren (startet beim Login + täglich 10:00 Uhr)
 npm run install-schedule
 ```
 
@@ -95,18 +70,16 @@ npm run install-schedule
 
 | Befehl | Beschreibung |
 |--------|-------------|
-| `npm run activate` | Lizenzschlüssel eingeben und aktivieren |
-| `npm run setup` | Google SSO Login (öffnet Browser-Fenster) |
+| `npm run activate` | Lizenzschluessel eingeben und aktivieren |
+| `npm run setup` | Google SSO Login (oeffnet Browser-Fenster) |
 | `npm run setup:login` | E-Mail/Passwort Login (interaktiv im Terminal) |
-| `npm run confirm` | Verfügbarkeit einmalig bestätigen (erfordert Lizenz) |
-| `npm run status` | Aktuellen Status anzeigen (Session, Scheduler, letzter Erfolg) |
-| `npm run install-schedule` | Scheduler installieren (erkennt OS automatisch) |
+| `npm run confirm` | Verfuegbarkeit einmalig bestaetigen |
+| `npm run status` | Aktuellen Status anzeigen |
+| `npm run install-schedule` | Taeglichen Scheduler installieren |
 | `npm run uninstall-schedule` | Scheduler entfernen |
-| `npm test` | Unit Tests ausführen |
+| `npm test` | Tests ausfuehren (29 Tests) |
 
-### Scheduling (plattformspezifisch)
-
-Der Scheduler wird automatisch für dein Betriebssystem konfiguriert:
+### Scheduling
 
 | Plattform | Mechanismus | Konfiguration |
 |-----------|------------|---------------|
@@ -114,35 +87,27 @@ Der Scheduler wird automatisch für dein Betriebssystem konfiguriert:
 | **Linux** | systemd User Timer | `~/.config/systemd/user/profile-pulse.timer` |
 | **Windows** | Task Scheduler | Task `ProfilePulse` |
 
-Auf allen Plattformen:
-- **Start beim Login** — läuft sofort nach der Anmeldung
-- **Täglich um 10:00 Uhr** — wiederholt sich jeden Tag, um das 7-Tage-Fenster zuverlässig abzudecken
-- **Überlebt Neustarts** — der jeweilige Scheduler verwaltet den Lebenszyklus automatisch
+Auf allen Plattformen: Start beim Login + taeglich 10:00 Uhr. Ueberlebt Neustarts. Der Browser laeuft off-screen und stoert nicht bei der Arbeit.
 
-Der Browser läuft off-screen (nicht-headless, um Cloudflare zu umgehen) und stört nicht bei der Arbeit.
+### Zuverlaessigkeit
 
-### Zuverlässigkeit
+- **Automatische Wiederholung** — bis zu 3 Versuche (0s, 15s, 45s Delay)
+- **Erfolgs-Tracking** — warnt per Benachrichtigung wenn >5 Tage seit letzter Bestaetigung
+- **Offline-Toleranz** — Lizenz bleibt 7 Tage gueltig ohne Serververbindung
+- **Screenshot-Rotation** — automatische Bereinigung (max. 20 Dateien)
 
-- **Automatische Wiederholung**: Schlägt ein Bestätigungsversuch fehl (z.B. Netzwerk-Timeout, Cloudflare), wird bis zu 3x mit steigenden Wartezeiten (0s, 15s, 45s) wiederholt
-- **Erfolgs-Tracking**: Der Zeitpunkt der letzten erfolgreichen Bestätigung wird in `last-success.json` gespeichert. Falls >5 Tage vergangen sind, erscheint eine Warnung per Desktop-Benachrichtigung
-- **Offline-Toleranz**: Ist der Lizenzserver nicht erreichbar, wird die Lizenz bis zu 7 Tage lang weiterhin als gültig akzeptiert (Grace Period)
-- **Screenshot-Rotation**: Alte Screenshots werden automatisch bereinigt (maximal 20 behalten)
+### Session & Logs
 
-### Session-Verwaltung
-
-Die Browser-Session wird in `browser-data/` gespeichert (gitignored). Wenn die Session abläuft (Google-Sessions halten typischerweise Wochen bis Monate), erscheint eine Desktop-Benachrichtigung mit der Aufforderung, `npm run setup` oder `npm run setup:login` erneut auszuführen.
-
-### Logs
-
-Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `logs/screenshots/` zur Fehleranalyse (automatische Rotation, max. 20 Dateien).
+- Browser-Session in `browser-data/` (gitignored). Bei Ablauf erscheint eine Benachrichtigung.
+- Logs in `logs/` (taegliche Rotation). Screenshots in `logs/screenshots/` zur Fehleranalyse.
 
 ### Voraussetzungen
 
 - **macOS**, **Linux** oder **Windows**
 - Node.js >= 18
 - Ein Malt.de Freelancer-Konto
-- Eine gültige Lizenz (monatlich oder Lifetime)
-- Linux: `notify-send` (optional, für Desktop-Benachrichtigungen)
+- Eine gueltige ProfilePulse-Lizenz
+- Linux: `notify-send` (optional, fuer Desktop-Benachrichtigungen)
 
 ---
 
@@ -150,9 +115,13 @@ Logs werden in `logs/` geschrieben (tägliche Rotation). Screenshots landen in `
 
 ## :gb: English
 
-Automated availability confirmation for [malt.de](https://www.malt.de) freelancer profiles.
+### The problem
 
-Malt requires freelancers to confirm their availability every 7 days to maintain the "availability confirmed" badge on their profile. Without confirmation, visibility in search results decreases. ProfilePulse automates the entire process on **macOS, Linux, and Windows**.
+Malt requires freelancers to manually confirm their availability **every 7 days**. Miss it, and your green badge disappears, search visibility drops — and potential clients can't find you.
+
+### The solution
+
+ProfilePulse handles it automatically. Set up once, never think about it again. Runs on **macOS, Linux, and Windows**.
 
 ### Pricing
 
@@ -161,65 +130,33 @@ Malt requires freelancers to confirm their availability every 7 days to maintain
 | **Monthly** | 5 EUR/month | Cancel anytime |
 | **Lifetime** | 49 EUR one-time | Pay once, use forever |
 
-Purchase a license and get your key: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
+Purchase a license: **[profilepulse-license.example.com](https://profilepulse-license.example.com)**
 
 ### How it works
 
-1. Uses [Playwright](https://playwright.dev/) with a **persistent browser context** to maintain the login session permanently
-2. Navigates to the Malt freelancer dashboard
-3. Opens the availability dialog and clicks "Ja" + "Bestätigen"
+1. Uses [Playwright](https://playwright.dev/) with a **persistent browser context** for permanent login sessions
+2. Navigates to the freelancer dashboard
+3. Opens the availability dialog and clicks "Ja" + "Bestaetigen"
 4. **Automatic retry** on failure (up to 3 attempts with increasing delays)
-5. Sends desktop notifications on success or failure (macOS, Linux, Windows)
-6. **Tracks last success** and warns if confirmation is overdue (>5 days)
-7. Runs automatically via scheduler — starts at login and repeats daily at 10:00 AM
+5. Sends **desktop notifications** on success or failure
+6. **Tracks last success** and warns if >5 days since last confirmation
+7. Runs automatically via scheduler — daily at 10:00 AM + at login
 
-### Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Install Playwright browsers (Chromium only)
-npx playwright install chromium
-```
-
-### Activate license
-
-After purchasing a license, you'll receive a key in the format `PULSE-XXXX-XXXX-XXXX-XXXX`.
+### Quick start
 
 ```bash
+# 1. Install dependencies
+npm install && npx playwright install chromium
+
+# 2. Activate license (format: PULSE-XXXX-XXXX-XXXX-XXXX)
 npm run activate
-```
 
-Enter the license key when prompted. The key is stored locally in `license.json` (gitignored).
+# 3. Log in to Malt (choose one)
+npm run setup          # Google SSO (browser window)
+npm run setup:login    # Email/password (terminal)
 
-### Login
-
-There are two ways to log in to Malt. The session is saved locally after login and reused for all subsequent automated runs.
-
-#### Option A: Google SSO (browser window)
-
-```bash
-npm run setup
-```
-
-Opens a Chromium window with the Malt sign-in page. Click "Sign in with Google" and complete the Google login. Once the dashboard loads, the session is saved and the window closes automatically.
-
-#### Option B: Email and password (terminal)
-
-```bash
-npm run setup:login
-```
-
-Prompts for email and password directly in the terminal. The password is masked with `*` during input. Credentials are **not** stored — only the browser session is saved locally.
-
-### Start automation
-
-```bash
-# Test that confirmation works
+# 4. Test & install scheduler
 npm run confirm
-
-# Install daily scheduler (starts at login + daily at 10:00 AM)
 npm run install-schedule
 ```
 
@@ -230,15 +167,13 @@ npm run install-schedule
 | `npm run activate` | Enter and activate a license key |
 | `npm run setup` | Google SSO login (opens browser window) |
 | `npm run setup:login` | Email/password login (interactive terminal) |
-| `npm run confirm` | Confirm availability once (requires license) |
-| `npm run status` | Show current status (session, scheduler, last success) |
-| `npm run install-schedule` | Install scheduler (auto-detects OS) |
+| `npm run confirm` | Confirm availability once |
+| `npm run status` | Show current status |
+| `npm run install-schedule` | Install daily scheduler |
 | `npm run uninstall-schedule` | Remove the scheduler |
-| `npm test` | Run unit tests |
+| `npm test` | Run tests (29 tests) |
 
-### Scheduling (platform-specific)
-
-The scheduler is automatically configured for your operating system:
+### Scheduling
 
 | Platform | Mechanism | Configuration |
 |----------|-----------|---------------|
@@ -246,34 +181,26 @@ The scheduler is automatically configured for your operating system:
 | **Linux** | systemd user timer | `~/.config/systemd/user/profile-pulse.timer` |
 | **Windows** | Task Scheduler | Task `ProfilePulse` |
 
-On all platforms:
-- **Start at login** — runs immediately when you log in
-- **Daily at 10:00 AM** — repeats every day to keep the 7-day window covered
-- **Survives reboots** — the respective scheduler manages the lifecycle automatically
-
-The browser window runs off-screen (non-headless to bypass Cloudflare) so it won't interfere with your work.
+On all platforms: starts at login + daily at 10:00 AM. Survives reboots. The browser runs off-screen and won't interfere with your work.
 
 ### Reliability
 
-- **Automatic retry**: If a confirmation attempt fails (e.g. network timeout, Cloudflare), it retries up to 3 times with increasing delays (0s, 15s, 45s)
-- **Success tracking**: The timestamp of the last successful confirmation is stored in `last-success.json`. If >5 days have passed, a warning notification is shown
-- **Offline tolerance**: If the license server is unreachable, the license remains valid for up to 7 days (grace period)
-- **Screenshot rotation**: Old screenshots are automatically cleaned up (keeps the most recent 20)
+- **Automatic retry** — up to 3 attempts (0s, 15s, 45s delay)
+- **Success tracking** — warns via notification if >5 days since last confirmation
+- **Offline tolerance** — license stays valid for 7 days without server connection
+- **Screenshot rotation** — automatic cleanup (max 20 files)
 
-### Session management
+### Session & logs
 
-The browser session is stored in `browser-data/` (gitignored). If the session expires (Google SSO sessions typically last weeks to months), you'll receive a desktop notification prompting you to run `npm run setup` or `npm run setup:login` again.
-
-### Logs
-
-Logs are written to `logs/` with daily rotation. Screenshots are saved to `logs/screenshots/` for debugging (automatic rotation, max 20 files).
+- Browser session stored in `browser-data/` (gitignored). A notification appears when it expires.
+- Logs written to `logs/` (daily rotation). Screenshots in `logs/screenshots/` for debugging.
 
 ### Requirements
 
 - **macOS**, **Linux**, or **Windows**
 - Node.js >= 18
 - A Malt.de freelancer account
-- A valid license (monthly or lifetime)
+- A valid ProfilePulse license
 - Linux: `notify-send` (optional, for desktop notifications)
 
 ---
